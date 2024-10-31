@@ -13,7 +13,14 @@ RUN apt-get update && apt-get install -y \
     openssh-server \
     sudo \
     && rm -rf /var/lib/apt/lists/*
-
+    
+# Install Python packages
+RUN pip3 install --no-cache-dir \
+    numpy \
+    pandas \
+    pytest \
+    ipython
+    
 # Set up SSH
 RUN mkdir /var/run/sshd
 RUN echo 'root:password' | chpasswd
