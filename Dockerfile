@@ -12,15 +12,27 @@ RUN apt-get update && apt-get install -y \
     make \
     openssh-server \
     sudo \
+    curl \
+    git  \
     && rm -rf /var/lib/apt/lists/*
     
 # Install Python packages
 RUN pip3 install --no-cache-dir \
     numpy \
     pandas \
+    matplotlib \
+    pylint \
+    autopep8 \
+    flake8 \
     pytest \
-    ipython
-    
+    ipython \
+    jupyter \
+    ipykernel \
+    notebook
+
+# Set up Jupyter Notebook
+RUN python -m ipykernel install --user --name=python3
+
 # Set up SSH
 RUN mkdir /var/run/sshd
 RUN echo 'root:password' | chpasswd
@@ -40,5 +52,4 @@ EXPOSE 22
 
 # Start SSH service
 CMD ["/usr/sbin/sshd", "-D"]
-# install Git
-RUN apt-get update && apt-get install -y git
+
