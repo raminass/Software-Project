@@ -1,6 +1,10 @@
 FROM ubuntu:latest
 
-# Install necessary packages
+# Prevent timezone prompts during installation
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+
+# Install essential packages and development tools
 RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
@@ -10,10 +14,14 @@ RUN apt-get update && apt-get install -y \
     gdb \
     valgrind \
     make \
+    cmake \
+    git \
     openssh-server \
     sudo \
+    vim \
     curl \
-    git  \
+    wget \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
     
 # Install Python packages
