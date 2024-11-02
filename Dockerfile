@@ -25,15 +25,11 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python packages, including Jupyter Notebook and scientific libraries
+# Install Python packages
 RUN pip3 install --no-cache-dir \
     numpy \
     pytest \
-    ipython \
-    jupyter \
-    matplotlib \
-    pandas \
-    scipy
+    ipython
 
 # Setup SSH server
 RUN mkdir /var/run/sshd
@@ -44,18 +40,12 @@ RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 RUN useradd -rm -d /home/developer -s /bin/bash -g root -G sudo -u 1000 developer
 RUN echo 'developer:developer' | chpasswd
 
+# Create workspace directory
+RUN mkdir -p /workspace
+RUN chown developer:root /workspace
 
-# Setup Jupyter Notebook to run on container startup
-RUN mkdir -p /home/developer/.jupyter
-RUN echo "c.NotebookApp.allow_origin = '*'" > /home/developer/.jupyter/jupyter_notebook_config.py
-RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> /home/developer/.jupyter/jupyter_notebook_config.py
-RUN echo "c.NotebookApp.open_browser = False" >> /home/developer/.jupyter/jupyter_notebook_config.py
-RUN echo "c.NotebookApp.token = ''" >> /home/developer/.jupyter/jupyter_notebook_config.py
-RUN echo "c.NotebookApp.notebook_dir = '/home/developer'" >> /home/developer/.jupyter/jupyter_notebook_config.py
-
-# Expose SSH and Jupyter Notebook ports
+# Expose SSH port
 EXPOSE 22
-EXPOSE 8888
 
-# Start both SSH and Jupyter Notebook servers on container startup
-CMD service ssh start && sudo -u developer jupyter-notebook --no-browser --ip=0.0.0.0 --port=8888 --notebook-dir=/home/developer
+# Start SSH server
+CMD ["/usr/sbin/sshd", "-D"]
