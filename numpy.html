@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Previous Weeks &#8212; Software Project 0368-2161</title>
+    <title>Numpy &#8212; Software Project 0368-2161</title>
   
   
   
@@ -60,6 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'numpy';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pandas" href="pandas.html" />
+    <link rel="prev" title="C Python API" href="C_Python_API.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -173,12 +173,85 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Development_Environment.html">Development Environment</a></li>
 
 
 
 <li class="toctree-l1"><a class="reference internal" href="Python_review.html">Python Review</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Introduction_to_C.html">Introduction to C</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arrays_pointers.html">Arrays + Pointers</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="C_tutorial.html">C Tutorial</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="strings%2BdynamicMemory.html">Strings + Dynamic Memory</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="structures_linkedLists.html">Structures</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessor.html">The Preprocessor</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Files.html">Files</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Bitwise_Operators.html">Bitwise Operators</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="C_Python_API.html">C Python API</a></li>
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Numpy</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">Pandas</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="scikit_learn.html">Machine Learning</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="large_scale.html">Large Scale + C Example Test</a></li>
+
+
 
 
 
@@ -434,7 +507,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Previous Weeks</h1>
+    <h1>Numpy</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -444,7 +517,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Previous Weeks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Numpy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#previous-weeks">Previous Weeks</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#coming-lessons">Coming Lessons</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-dimensional-arrays">N-dimensional Arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering">Filtering</a></li>
@@ -468,7 +542,9 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/raminass/Software-Project/blob/main/numpy.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<p><strong>Author</strong>: Rami Nasser (raminass&#64;gmail.com)</p>
+<section class="tex2jax_ignore mathjax_ignore" id="numpy">
+<h1>Numpy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h1>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="previous-weeks">
 <h1>Previous Weeks<a class="headerlink" href="#previous-weeks" title="Link to this heading">#</a></h1>
 <ul class="simple">
@@ -710,8 +786,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.04105802 0.33445168]
- [0.14769524 0.86705233]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.68431721 0.50497979]
+ [0.57215243 0.77940932]]
 </pre></div>
 </div>
 </div>
@@ -1765,6 +1841,24 @@ with NumPy arrays.</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="C_Python_API.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">C Python API</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pandas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pandas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1781,7 +1875,8 @@ with NumPy arrays.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Previous Weeks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Numpy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#previous-weeks">Previous Weeks</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#coming-lessons">Coming Lessons</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-dimensional-arrays">N-dimensional Arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering">Filtering</a></li>

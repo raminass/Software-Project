@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Science in Python &#8212; Software Project 0368-2161</title>
+    <title>Machine Learning &#8212; Software Project 0368-2161</title>
   
   
   
@@ -62,6 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'scikit_learn';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Large Scale + C Example Test" href="large_scale.html" />
+    <link rel="prev" title="Pandas" href="pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -175,12 +175,85 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Development_Environment.html">Development Environment</a></li>
 
 
 
 <li class="toctree-l1"><a class="reference internal" href="Python_review.html">Python Review</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Introduction_to_C.html">Introduction to C</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arrays_pointers.html">Arrays + Pointers</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="C_tutorial.html">C Tutorial</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="strings%2BdynamicMemory.html">Strings + Dynamic Memory</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="structures_linkedLists.html">Structures</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessor.html">The Preprocessor</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Files.html">Files</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Bitwise_Operators.html">Bitwise Operators</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="C_Python_API.html">C Python API</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="numpy.html">Numpy</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">Pandas</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Machine Learning</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="large_scale.html">Large Scale + C Example Test</a></li>
+
+
 
 
 
@@ -436,7 +509,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Science in Python</h1>
+    <h1>Machine Learning</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -446,11 +519,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Science in Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Machine Learning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-in-python">Data Science in Python</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-cycle">The data cycle</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">Machine learning</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Machine learning</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-example-house-price-prediction">Basic Example - House Price Prediction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-dimensional">One dimensional</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-features">More Features</a></li>
@@ -474,12 +548,12 @@ document.write(`
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn">scikit-learn</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn-theory">Scikit-learn: theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Classification</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-your-model">Evaluating your model</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Clustering</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-pca">Dimensionality reduction (PCA)</a></li>
 </ul>
 </li>
@@ -496,7 +570,9 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/raminass/Software-Project/blob/main/scikit_learn.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<p><strong>Author</strong>: Rami Nasser (raminass&#64;gmail.com)</p>
+<section class="tex2jax_ignore mathjax_ignore" id="machine-learning">
+<h1>Machine Learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h1>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="data-science-in-python">
 <h1>Data Science in Python<a class="headerlink" href="#data-science-in-python" title="Link to this heading">#</a></h1>
 <section id="the-data-cycle">
@@ -506,8 +582,8 @@ document.write(`
 <p>Today: ML</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="machine-learning">
-<h1>Machine learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Machine learning<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>We are given a dataset and would like to perform a task with it.</p>
 <section id="basic-example-house-price-prediction">
 <h2>Basic Example - House Price Prediction<a class="headerlink" href="#basic-example-house-price-prediction" title="Link to this heading">#</a></h2>
@@ -732,8 +808,8 @@ if (outputEl) {{
 </div>
 </div>
 </section>
-<section id="id1">
-<h2>Regression<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h2>Regression<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diabetes</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_diabetes</span><span class="p">()</span>
@@ -1003,8 +1079,8 @@ Bradley Efron, Trevor Hastie, Iain Johnstone and Robert Tibshirani (2004) &quot;
 </div>
 </div>
 </section>
-<section id="id2">
-<h2>Classification<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h2>Classification<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>Another example of a machine learning problem is classification. Here we will use a dataset of flower measurements from three different flower species of <em>Iris</em> (<em>Iris setosa</em>, <em>Iris virginica</em>, and <em>Iris versicolor</em>). We aim to predict the species of the flower. Because the species is not a numerical output, it is not a regression problem, but a classification problem.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1248,8 +1324,8 @@ weighted avg       1.00      1.00      1.00        30
 </div>
 </section>
 </section>
-<section id="id3">
-<h2>Clustering<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h2>Clustering<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>Clustering is useful if we don’t have a dataset labelled with the categories we want to predict, but we nevertheless expect there to be a certain number of categories. For example, suppose we have the previous dataset, but we are missing the labels. We can use a clustering algorithm like k-means to <em>cluster</em> the datapoints. Because we don’t have labels, clustering is what is called an <strong>unsupervised learning</strong> algorithm.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1731,6 +1807,24 @@ cd math-prog/cpo-dataset/machine-learn/WDBC/
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="pandas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pandas</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="large_scale.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Large Scale + C Example Test</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1747,11 +1841,12 @@ cd math-prog/cpo-dataset/machine-learn/WDBC/
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Science in Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Machine Learning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-in-python">Data Science in Python</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-cycle">The data cycle</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">Machine learning</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Machine learning</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-example-house-price-prediction">Basic Example - House Price Prediction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-dimensional">One dimensional</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-features">More Features</a></li>
@@ -1775,12 +1870,12 @@ cd math-prog/cpo-dataset/machine-learn/WDBC/
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn">scikit-learn</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn-theory">Scikit-learn: theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Classification</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-your-model">Evaluating your model</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Clustering</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-pca">Dimensionality reduction (PCA)</a></li>
 </ul>
 </li>
