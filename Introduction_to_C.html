@@ -1,0 +1,2692 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The C programming language &#8212; Web Course</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Introduction_to_C';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Software Project" href="Development_Environment.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Development_Environment.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Web Course</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Development_Environment.html">
+                    Software Project
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Content</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The C programming language</a></li>
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/TauInnov/book/master/v2/gh/TauInnov/NewCourse/main?urlpath=tree/docs/Introduction_to_C.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/TauInnov/NewCourse/blob/main/docs/Introduction_to_C.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/TauInnov/NewCourse" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/TauInnov/NewCourse/issues/new?title=Issue%20on%20page%20%2FIntroduction_to_C.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Introduction_to_C.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The C programming language</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The C programming language</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-c">Why C ?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-vs-java">C vs. Java</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-topics">C Topics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#todays-class-basic-c">Today’s class: Basic C</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lexical-elements-chapter-2">Lexical Elements (chapter 2)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kewords">Kewords</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifiers">Identifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-data-types-chapter-3">Fundamental data types (Chapter 3 )</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-types">Integral Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-types">Floating Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-differences">Key Differences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int-representation">Int Representation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-s-complement-for-signed-values">Two’s Complement for Signed Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alert-integer-overflow-or-wrap-around">Alert: integer overflow (or wrap-around)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-representation-in-c">Floating-Point Representation in C</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#value-calculation">Value Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code">Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#double-precision-double-64-bits">Double Precision (<code class="docutils literal notranslate"><span class="pre">double</span></code>): 64 bits</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#size-of-data-types-in-c">Size of Data Types in C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constants-in-c">Constants in C</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii-character-constants">ASCII Character Constants</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decimal-hexadecimal-and-octal-representation-in-c">Decimal, Hexadecimal, and Octal Representation in C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-usual-arithmetic-conversion-promotion">The usual arithmetic conversion (promotion)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-examples">Explanation of Examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cast">Cast</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-in-c">Boolean in C</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-of-control-chapter-4">Flow of Control (Chapter 4)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operators-and-associativity">Operators and Associativity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#increment-operators">Increment Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initializations-1">Declarations and Initializations 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initializations-2">Declarations and Initializations 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initializations-3">Declarations and Initializations 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initializations-4">Declarations and Initializations 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-statement">The <strong>if</strong> Statement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation">Indentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dangling-else">Dangling else</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practice">Best Practice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-while-statement">The while Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-for-statement">The for Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-comma-operator">The comma Operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-the-for-statement">Example - The for Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#short-circuit-evaluation">Short-circuit Evaluation (&amp;&amp;,||)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-do-while-statement">The do-while Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-break-command">The break Command</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continue-command">The continue Command</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-statement">Switch Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-conditional-operator-exp1-exp2-exp3">The conditional operator  exp1?exp2:exp3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-intro-to-io-chapter-11">A quick intro to IO (Chapter 11)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printf">Printf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printf-conversion-characters">Printf Conversion Characters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-specifiers-and-how-they-are-printed">Format Specifiers and How They are Printed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scanf">Scanf</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a href="https://colab.research.google.com/github/raminass/Software-Project/blob/main/Introduction_to_C.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="the-c-programming-language">
+<h1>The C programming language<a class="headerlink" href="#the-c-programming-language" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>C, Deniss Ritchie, Bell Labs, 1972;
+overcomes B’s typeless representation;
+used for developing UNIX.</p></li>
+<li><p>Early 80’s - traditional C</p></li>
+<li><p>1990 – the ANSI-C standard (course standard)</p></li>
+<li><p>C++ and Java</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="why-c">
+<h1>Why C ?<a class="headerlink" href="#why-c" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>C is <strong>compact</strong>: few reserved words, terse commands, powerful set of operators.</p></li>
+<li><p>C is <strong>efficient</strong>: direct memory management, some operators directly modify machine registers, manipulation of memory addresses.</p></li>
+<li><p>C is <strong>modular</strong> and <strong>typed</strong>.</p></li>
+<li><p>C is the native language of <strong>UNIX</strong>.</p></li>
+</ul>
+<p>Basis of C++ (also Java and Python libraries).</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="c-vs-java">
+<h1>C vs. Java<a class="headerlink" href="#c-vs-java" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Feature</strong></p></th>
+<th class="head"><p><strong>C</strong></p></th>
+<th class="head"><p><strong>Java</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Origin</strong></p></td>
+<td><p>C is a procedural language developed in the 1970s.</p></td>
+<td><p>Java was developed in the 1990s, inspired by C.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Paradigm</strong></p></td>
+<td><p>Procedural (not object-oriented). No classes or interfaces.</p></td>
+<td><p>Object-oriented. Built around classes and objects.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Primitive Types</strong></p></td>
+<td><p>Similar to Java but no built-in <code class="docutils literal notranslate"><span class="pre">boolean</span></code> or <code class="docutils literal notranslate"><span class="pre">string</span></code> types.</p></td>
+<td><p>Includes <code class="docutils literal notranslate"><span class="pre">boolean</span></code> and <code class="docutils literal notranslate"><span class="pre">String</span></code> as primitive and class types.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Memory Management</strong></p></td>
+<td><p>Manual memory management via pointers (e.g., <code class="docutils literal notranslate"><span class="pre">malloc</span></code>, <code class="docutils literal notranslate"><span class="pre">free</span></code>).</p></td>
+<td><p>Automatic memory management with garbage collection.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Garbage Collection</strong></p></td>
+<td><p>No garbage collection. Developers manage memory manually.</p></td>
+<td><p>Automatic garbage collection.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="c-topics">
+<h1>C Topics<a class="headerlink" href="#c-topics" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Lexical Elements</strong> (Ch. 2, self)</p></li>
+<li><p><strong>Fundamental Data Types</strong> (Ch. 3, self)</p></li>
+<li><p><strong>Flow of Control</strong> (Ch. 4, self)</p></li>
+<li><p><strong>Functions</strong> (Ch. 5); Runtime Environment</p></li>
+<li><p><strong>Arrays, Pointers, and Strings</strong> (Ch. 6); Dynamic Matrix Allocation (Ch. 12.6)</p></li>
+<li><p><strong>Structures</strong> (Ch. 9)</p></li>
+<li><p><strong>Linked Lists</strong> (Ch. 10)</p></li>
+<li><p><strong>Preprocessor</strong> (Ch. 8)</p></li>
+<li><p><strong>Input/Output and Files</strong> (Ch. 11)</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="todays-class-basic-c">
+<h1>Today’s class: Basic C<a class="headerlink" href="#todays-class-basic-c" title="Link to this heading">#</a></h1>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello, world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In Python</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello, world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> hello.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;hello, world</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+    <span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>hello.c<span class="w"> </span>-o<span class="w"> </span>hello
+<span class="o">./</span><span class="n">hello</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>               +-----------+               +---------+               +--------+
+   --------&gt;   | hello.c   |   --------&gt;   | hello.o |   --------&gt;   | hello  |
+     edit      +-----------+    compile    +---------+    Linking    +--------+
+
+                Keywords       Preprocessor         
+                Identifiers    Lexical analysis     
+                Constants      Syntax analysis      
+                Operators      Semantic analysis    
+                Punctuation    
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="lexical-elements-chapter-2">
+<h1>Lexical Elements (chapter 2)<a class="headerlink" href="#lexical-elements-chapter-2" title="Link to this heading">#</a></h1>
+<section id="kewords">
+<h2>Kewords<a class="headerlink" href="#kewords" title="Link to this heading">#</a></h2>
+<p>Reserved words with a strict meaning
+C does a lot with relatively few keywords.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Control Flow</p></th>
+<th class="head"><p>Data Types</p></th>
+<th class="head"><p>Storage Classes</p></th>
+<th class="head"><p>Type Qualifiers</p></th>
+<th class="head"><p>Other Keywords</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>if</p></td>
+<td><p>int</p></td>
+<td><p>auto</p></td>
+<td><p>const</p></td>
+<td><p>sizeof</p></td>
+</tr>
+<tr class="row-odd"><td><p>else</p></td>
+<td><p>char</p></td>
+<td><p>static</p></td>
+<td><p>volatile</p></td>
+<td><p>typedef</p></td>
+</tr>
+<tr class="row-even"><td><p>switch</p></td>
+<td><p>float</p></td>
+<td><p>extern</p></td>
+<td><p></p></td>
+<td><p>goto</p></td>
+</tr>
+<tr class="row-odd"><td><p>case</p></td>
+<td><p>double</p></td>
+<td><p>register</p></td>
+<td><p></p></td>
+<td><p>continue</p></td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td><p>void</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>break</p></td>
+</tr>
+<tr class="row-odd"><td><p>for</p></td>
+<td><p>short</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>return</p></td>
+</tr>
+<tr class="row-even"><td><p>while</p></td>
+<td><p>long</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>do</p></td>
+<td><p>enum</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>struct</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>union</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>signed</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>unsigned</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="identifiers">
+<h2>Identifiers<a class="headerlink" href="#identifiers" title="Link to this heading">#</a></h2>
+<p>A token composed of a sequence of letters</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">tax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">tax_rate</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>First character cannot be a digit!!</p></li>
+<li><p>Case sensitive</p></li>
+<li><p>Cannot be a keyword.</p></li>
+<li><p>Choose names that are meaningful (e.g., <code class="docutils literal notranslate"><span class="pre">cse_5a</span></code> is not a good example!!)</p></li>
+</ul>
+</section>
+<section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Link to this heading">#</a></h2>
+<p>Arbitrary strings placed between the delimiters /* and */.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * A comment can be written in this fashion</span>
+<span class="cm"> * to set it off from the surrounding code.</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<p>For single line comments (do not follow the ANSI standard):</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// This is a comment in c++</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fundamental-data-types-chapter-3">
+<h1>Fundamental data types (Chapter 3 )<a class="headerlink" href="#fundamental-data-types-chapter-3" title="Link to this heading">#</a></h1>
+<p>Integral (signed or unsigned)</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">short</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">long</span></code></p></li>
+</ul>
+<p>Floating Point Types</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></li>
+</ul>
+<p>Declaration is Important for:</p>
+<ul class="simple">
+<li><p>Memory allocation</p></li>
+<li><p>Interpreting the number correctly within expressions.</p></li>
+</ul>
+<section id="integral-types">
+<h2>Integral Types<a class="headerlink" href="#integral-types" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">char</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">short</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">long</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">short</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code></p></li>
+</ul>
+</section>
+<section id="floating-types">
+<h2>Floating Types<a class="headerlink" href="#floating-types" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code></p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c1">// Signed integer (can hold negative values)</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">signed_int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-10</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Signed int: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">signed_int</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Unsigned integer (cannot hold negative values)</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">unsigned_int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unsigned int: %u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">unsigned_int</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Floating-point example</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">floating_point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-3.123</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Floating-point: %.3f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">floating_point</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+
+<span class="c1"># include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Signed</span> <span class="n">integer</span> <span class="p">(</span><span class="n">can</span> <span class="n">hold</span> <span class="n">negative</span> <span class="n">values</span><span class="p">)</span>
+    <span class="nb">int</span> <span class="n">signed_int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Signed int: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">signed_int</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Unsigned</span> <span class="n">integer</span> <span class="p">(</span><span class="n">cannot</span> <span class="n">hold</span> <span class="n">negative</span> <span class="n">values</span><span class="p">)</span>
+    <span class="n">unsigned</span> <span class="nb">int</span> <span class="n">unsigned_int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Unsigned int: </span><span class="si">%u</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">unsigned_int</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Floating</span><span class="o">-</span><span class="n">point</span> <span class="n">example</span>
+    <span class="nb">float</span> <span class="n">floating_point</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.123</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Floating-point: </span><span class="si">%.3f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">floating_point</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="key-differences">
+<h2>Key Differences<a class="headerlink" href="#key-differences" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Signed int (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</strong>:</p>
+<ul>
+<li><p>Can store negative, zero, and positive values.</p></li>
+<li><p>Range (on most systems): <code class="docutils literal notranslate"><span class="pre">-2,147,483,648</span></code> to <code class="docutils literal notranslate"><span class="pre">2,147,483,647</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Unsigned int (<code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>)</strong>:</p>
+<ul>
+<li><p>Can only store zero and positive values.</p></li>
+<li><p>Range: <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">4,294,967,295</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Floating-point types (<code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>)</strong>:</p>
+<ul>
+<li><p>Always support negative, positive, and zero values by default.</p></li>
+<li><p>No distinction between signed and unsigned.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="int-representation">
+<h2>Int Representation<a class="headerlink" href="#int-representation" title="Link to this heading">#</a></h2>
+<p>Binary Value Representation</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Binary Value</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">0000</span> <span class="pre">0000</span></code></p></td>
+<td><p>0</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">1111</span> <span class="pre">1111</span></code></p></td>
+<td><p>255</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">0111</span> <span class="pre">1111</span></code></p></td>
+<td><p>127</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">1000</span> <span class="pre">0000</span></code></p></td>
+<td><p>128</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Two’s Complement for Signed Values</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Binary Value</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">svvv</span> <span class="pre">vvvv</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">char</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">1111</span> <span class="pre">1111</span></code></p></td>
+<td><p>-1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">char</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">1000</span> <span class="pre">0000</span></code></p></td>
+<td><p>-128</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">char</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Signed Integer</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Binary Value</p></th>
+<th class="head"><p>Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">svvv</span> <span class="pre">vvvv</span> <span class="pre">vvvv</span> <span class="pre">vvvv</span> <span class="pre">vvvv</span> <span class="pre">vvvv</span> <span class="pre">vvvv</span> <span class="pre">vvvv</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">int</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="two-s-complement-for-signed-values">
+<h3>Two’s Complement for Signed Values<a class="headerlink" href="#two-s-complement-for-signed-values" title="Link to this heading">#</a></h3>
+<p>The most significant bit (MSB) in two’s complement indicates the sign:</p>
+<ul class="simple">
+<li><p>0: The number is positive.</p></li>
+<li><p>1: The number is negative.</p></li>
+</ul>
+<p>In two’s complement:</p>
+<ul class="simple">
+<li><p>To get the negative of a number, you invert all the bits (change 0s to 1s and 1s to 0s) and add 1 to the result.</p></li>
+<li><p>The range of representable values is asymmetric: For an 8-bit number, the range is from -128 to 127.</p></li>
+</ul>
+<p>Converting Two’s Complement Back to a Signed Integer/char
+<strong>If the Number is Negative (MSB is <code class="docutils literal notranslate"><span class="pre">1</span></code>):</strong></p>
+<ul class="simple">
+<li><p>Invert all the bits (flip <code class="docutils literal notranslate"><span class="pre">0</span></code>s to <code class="docutils literal notranslate"><span class="pre">1</span></code>s and <code class="docutils literal notranslate"><span class="pre">1</span></code>s to <code class="docutils literal notranslate"><span class="pre">0</span></code>s).</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">1</span></code> to the inverted number.</p></li>
+<li><p>The result is the magnitude of the negative number.</p></li>
+</ul>
+<p>Example:</p>
+<p>Converting <code class="docutils literal notranslate"><span class="pre">1111</span> <span class="pre">1011</span></code> (Two’s Complement of <code class="docutils literal notranslate"><span class="pre">-5</span></code>) Back to <code class="docutils literal notranslate"><span class="pre">-5</span></code></p>
+<ol class="arabic simple">
+<li><p><strong>Step 1: Check the sign bit</strong>:</p>
+<ul class="simple">
+<li><p>MSB is <code class="docutils literal notranslate"><span class="pre">1</span></code>, so the number is negative.</p></li>
+</ul>
+</li>
+<li><p><strong>Step 2: Invert the bits</strong>:</p>
+<ul class="simple">
+<li><p>Original: <code class="docutils literal notranslate"><span class="pre">1111</span> <span class="pre">1011</span></code></p></li>
+<li><p>Inverted: <code class="docutils literal notranslate"><span class="pre">0000</span> <span class="pre">0100</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Step 3: Add <code class="docutils literal notranslate"><span class="pre">1</span></code> to the inverted bits</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0000</span> <span class="pre">0100</span></code> + <code class="docutils literal notranslate"><span class="pre">1</span></code> = <code class="docutils literal notranslate"><span class="pre">0000</span> <span class="pre">0101</span></code> (which is <code class="docutils literal notranslate"><span class="pre">5</span></code> in decimal).</p></li>
+</ul>
+</li>
+<li><p><strong>Step 4: Apply the sign</strong>:</p>
+<ul class="simple">
+<li><p>Since the MSB was <code class="docutils literal notranslate"><span class="pre">1</span></code>, the original number is <code class="docutils literal notranslate"><span class="pre">-5</span></code>.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="alert-integer-overflow-or-wrap-around">
+<h3>Alert: integer overflow (or wrap-around)<a class="headerlink" href="#alert-integer-overflow-or-wrap-around" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kt">signed</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">127</span><span class="p">;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Initial value: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// Add 1 to 127</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// Print the value after adding 1</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;After adding 1: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">signed</span> <span class="n">char</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">127</span><span class="p">;</span>
+
+   <span class="o">//</span> <span class="n">Print</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">value</span>
+   <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Initial value: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+
+   <span class="o">//</span> <span class="n">Add</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">127</span><span class="p">,</span> <span class="n">which</span> <span class="n">should</span> <span class="n">wrap</span> <span class="n">around</span> <span class="n">to</span> <span class="o">-</span><span class="mi">128</span>
+   <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+   <span class="o">//</span> <span class="n">Print</span> <span class="n">the</span> <span class="n">value</span> <span class="n">after</span> <span class="n">adding</span> <span class="mi">1</span>
+   <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;After adding 1: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="floating-point-representation-in-c">
+<h2>Floating-Point Representation in C<a class="headerlink" href="#floating-point-representation-in-c" title="Link to this heading">#</a></h2>
+<p>In floating-point representation, a number is expressed in scientific notation, either in decimal or binary format.</p>
+<p>Decimal Representation:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{number} = \text{int}.\text{frac} \times 10^{\text{exp}}
+\]</div>
+<p>Example: $<span class="math notranslate nohighlight">\(123.45 = 1.2345 \times 10^2\)</span>$</p>
+<p>Binary Representation:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{number} = 1.\text{frac} \times 2^{\text{exp}}
+\]</div>
+<p>Example: $<span class="math notranslate nohighlight">\(0.625  = 1.01 \times 2^{-1}\)</span>$</p>
+<p>Floating-point numbers in C are represented using the IEEE 754 standard, which defines how numbers are stored in memory. This representation is used for both <code class="docutils literal notranslate"><span class="pre">float</span></code> (single precision) and <code class="docutils literal notranslate"><span class="pre">double</span></code> (double precision).</p>
+<p>Format</p>
+<p><strong>Single Precision (<code class="docutils literal notranslate"><span class="pre">float</span></code>)</strong>: 32 bits</p>
+<p>s eeeeeeee fffffffffffffffffffffff</p>
+<ul class="simple">
+<li><p><strong>s</strong>: Sign bit (1 bit) - <code class="docutils literal notranslate"><span class="pre">0</span></code> for positive, <code class="docutils literal notranslate"><span class="pre">1</span></code> for negative.</p></li>
+<li><p><strong>e</strong>: Exponent (8 bits) - Biased exponent (bias of <code class="docutils literal notranslate"><span class="pre">127</span></code>).</p></li>
+<li><p><strong>f</strong>: Fraction (23 bits) - Mantissa, normalized to <code class="docutils literal notranslate"><span class="pre">1.f</span></code>.</p></li>
+</ul>
+<section id="value-calculation">
+<h3>Value Calculation<a class="headerlink" href="#value-calculation" title="Link to this heading">#</a></h3>
+<p>The value of a floating-point number is calculated using the formula:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Value} = (-1)^{\text{sign}} \times 1.\text{fraction} \times 2^{\text{exponent} - \text{bias}}
+\]</div>
+<ul class="simple">
+<li><p>For <code class="docutils literal notranslate"><span class="pre">float</span></code>, the bias is <code class="docutils literal notranslate"><span class="pre">127</span></code>.</p></li>
+</ul>
+<p>Example</p>
+<ul class="simple">
+<li><p><strong>For <code class="docutils literal notranslate"><span class="pre">0.5</span></code> in <code class="docutils literal notranslate"><span class="pre">float</span></code></strong>:</p></li>
+<li><p>Binary: $<span class="math notranslate nohighlight">\(0.5 = 1.0 \times 2^{-1}\)</span>$</p></li>
+<li><p>IEEE 754 Representation: <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">01111110</span> <span class="pre">00000000000000000000000</span></code></p></li>
+</ul>
+</section>
+<section id="code">
+<h3>Code<a class="headerlink" href="#code" title="Link to this heading">#</a></h3>
+<p>Here’s a short code snippet to print the binary representation of a <code class="docutils literal notranslate"><span class="pre">float</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>
+<span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span>
+<span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Binary representation of float (0.5): &quot;</span><span class="p">);</span>
+<span class="w"> </span><span class="n">print_binary_float</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+<span class="c1"># include &lt;stdio.h&gt;</span>
+<span class="c1"># include &lt;stdint.h&gt;</span>
+<span class="c1"># include &lt;string.h&gt;</span>
+
+<span class="n">void</span> <span class="n">print_binary_float</span><span class="p">(</span><span class="nb">float</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
+ <span class="n">uint32_t</span> <span class="n">bits</span><span class="p">;</span>
+ <span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bits</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">num</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">bits</span><span class="p">));</span>
+ <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">bits</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">);</span>
+     <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">31</span> <span class="o">||</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">23</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>  <span class="o">//</span> <span class="n">Separate</span> <span class="n">sign</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="ow">and</span> <span class="n">mantissa</span>
+ <span class="p">}</span>
+ <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+ <span class="nb">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+ <span class="n">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+ <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Binary representation of float (0.5): &quot;</span><span class="p">);</span>
+ <span class="n">print_binary_float</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+
+ <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="double-precision-double-64-bits">
+<h3>Double Precision (<code class="docutils literal notranslate"><span class="pre">double</span></code>): 64 bits<a class="headerlink" href="#double-precision-double-64-bits" title="Link to this heading">#</a></h3>
+<p>s eeeeeeeeeee ffffffffffffffffffffffffffffffffffffffffffffff</p>
+<ul class="simple">
+<li><p><strong>s</strong>: Sign bit (1 bit).</p></li>
+<li><p><strong>e</strong>: Exponent (11 bits) - Biased exponent (bias of <code class="docutils literal notranslate"><span class="pre">1023</span></code>).</p></li>
+<li><p><strong>f</strong>: Fraction (52 bits) - Mantissa, normalized to <code class="docutils literal notranslate"><span class="pre">1.f</span></code>.</p></li>
+<li><p><strong>For <code class="docutils literal notranslate"><span class="pre">0.5</span></code> in <code class="docutils literal notranslate"><span class="pre">double</span></code></strong>:</p></li>
+<li><p>Binary: $<span class="math notranslate nohighlight">\(0.5 = 1.0 \times 2^{-1}\)</span>$</p></li>
+<li><p>IEEE 754 Representation: <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">01111111100</span> <span class="pre">0000000000000000000000000000000000000000000000000000</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="size-of-data-types-in-c">
+<h2>Size of Data Types in C<a class="headerlink" href="#size-of-data-types-in-c" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">sizeof</span><span class="p">(</span><span class="kt">short</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span><span class="p">)</span>
+<span class="k">sizeof</span><span class="p">(</span><span class="kt">signed</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">unsigned</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>on “nova”:</p>
+<ul class="simple">
+<li><p><strong>char</strong>: 1 byte</p></li>
+<li><p><strong>short</strong>: 2 bytes</p></li>
+<li><p><strong>int</strong>: 4 bytes</p></li>
+<li><p><strong>long</strong>: 8 bytes</p></li>
+<li><p><strong>unsigned</strong>: 4 bytes</p></li>
+<li><p><strong>float</strong>: 4 bytes</p></li>
+<li><p><strong>double</strong>: 8 bytes</p></li>
+<li><p><strong>long double</strong>: 16 bytes</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Size of char: %zu bytes</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">));</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Size of char: %zu bytes</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">char</span><span class="p">));</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="constants-in-c">
+<h2>Constants in C<a class="headerlink" href="#constants-in-c" title="Link to this heading">#</a></h2>
+<p>Constants are fixed values that do not change during program execution. They can be categorized by their types as follows:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>char</p></td>
+<td><p>‘a’, ‘x’, ‘0’, ‘&amp;’, ‘\n’</p></td>
+</tr>
+<tr class="row-odd"><td><p>int</p></td>
+<td><p>1, 0, -54, 4234567</p></td>
+</tr>
+<tr class="row-even"><td><p>long</p></td>
+<td><p>0l, 123l, –7766l</p></td>
+</tr>
+<tr class="row-odd"><td><p>unsigned</p></td>
+<td><p>0u, 23u, 3000000000u</p></td>
+</tr>
+<tr class="row-even"><td><p>float</p></td>
+<td><p>1.2f, .2f, 1.f, 3.14159f</p></td>
+</tr>
+<tr class="row-odd"><td><p>double</p></td>
+<td><p>1.0, -3.1412, 1.2e-2</p></td>
+</tr>
+<tr class="row-even"><td><p>long double</p></td>
+<td><p>1.0l, –2.4433l</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="ascii-character-constants">
+<h3>ASCII Character Constants<a class="headerlink" href="#ascii-character-constants" title="Link to this heading">#</a></h3>
+<p>Lowercase Letters</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>‘a’</p></th>
+<th class="head"><p>‘b’</p></th>
+<th class="head"><p>‘c’</p></th>
+<th class="head"><p>…</p></th>
+<th class="head"><p>‘z’</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Value</p></td>
+<td><p>97</p></td>
+<td><p>98</p></td>
+<td><p>99</p></td>
+<td><p>…</p></td>
+<td><p>122</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p>Digits</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>‘0’</p></th>
+<th class="head"><p>‘1’</p></th>
+<th class="head"><p>‘2’</p></th>
+<th class="head"><p>…</p></th>
+<th class="head"><p>‘9’</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Value</p></td>
+<td><p>48</p></td>
+<td><p>49</p></td>
+<td><p>50</p></td>
+<td><p>…</p></td>
+<td><p>57</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p>Special Characters</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name of Character</p></th>
+<th class="head"><p>Written in C</p></th>
+<th class="head"><p>Integer Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Alert</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'\a'</span></code></p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>Backslash</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'\\'</span></code></p></td>
+<td><p>92</p></td>
+</tr>
+<tr class="row-even"><td><p>Horizontal Tab</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'\t'</span></code></p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p>Newline</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'\n'</span></code></p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>Null Character</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'\0'</span></code></p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Quote</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'\&quot;'</span></code></p></td>
+<td><p>39</p></td>
+</tr>
+<tr class="row-even"><td><p>Ampersand</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'&amp;'</span></code></p></td>
+<td><p>38</p></td>
+</tr>
+<tr class="row-odd"><td><p>Asterisk</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'*'</span></code></p></td>
+<td><p>42</p></td>
+</tr>
+<tr class="row-even"><td><p>Plus</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'+'</span></code></p></td>
+<td><p>43</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Example 1</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w">       </span><span class="c1">// prints ?</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w">       </span><span class="c1">// prints ?</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c%c%c&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// prints ?</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">char</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span><span class="p">;</span>
+   <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>                   <span class="o">//</span> <span class="n">Prints</span> <span class="n">the</span> <span class="n">character</span> <span class="s1">&#39;a&#39;</span>
+   <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>                   <span class="o">//</span> <span class="n">Prints</span> <span class="n">the</span> <span class="n">integer</span> <span class="n">value</span> <span class="n">of</span> <span class="s1">&#39;a&#39;</span> <span class="p">(</span><span class="mi">97</span><span class="p">)</span>
+   <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c%c%c</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span> <span class="o">//</span> <span class="n">Prints</span> <span class="s1">&#39;abc&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+<p>Example 2</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>‘A’</p></th>
+<th class="head"><p>‘B’</p></th>
+<th class="head"><p>‘C’</p></th>
+<th class="head"><p>…</p></th>
+<th class="head"><p>‘Z’</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Value</p></td>
+<td><p>65</p></td>
+<td><p>66</p></td>
+<td><p>67</p></td>
+<td><p>…</p></td>
+<td><p>90</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// printed ?</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;z&#39;</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// printed ?</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">65</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">90</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// printed ?</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;9&#39;</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">char</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+   <span class="o">//</span> <span class="err">“</span><span class="n">abc</span> <span class="o">...</span> <span class="n">z</span><span class="err">“</span> <span class="ow">is</span> <span class="n">printed</span>
+   <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="s1">&#39;z&#39;</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+   <span class="p">}</span>
+   <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+   <span class="o">//</span> <span class="err">“</span><span class="n">ABC</span> <span class="o">...</span> <span class="n">Z</span><span class="err">“</span> <span class="ow">is</span> <span class="n">printed</span>
+   <span class="k">for</span> <span class="p">(</span><span class="n">c</span> <span class="o">=</span> <span class="mi">65</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="mi">90</span><span class="p">;</span> <span class="o">++</span><span class="n">c</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+   <span class="p">}</span>
+   <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+   <span class="o">//</span> <span class="err">“</span><span class="mi">48</span> <span class="mi">49</span> <span class="mi">50</span> <span class="o">...</span> <span class="mi">57</span><span class="err">“</span> <span class="ow">is</span> <span class="n">printed</span>
+   <span class="k">for</span> <span class="p">(</span><span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="s1">&#39;9&#39;</span><span class="p">;</span> <span class="o">++</span><span class="n">c</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="decimal-hexadecimal-and-octal-representation-in-c">
+<h2>Decimal, Hexadecimal, and Octal Representation in C<a class="headerlink" href="#decimal-hexadecimal-and-octal-representation-in-c" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d  %x  %o</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">);</span><span class="w">       </span><span class="c1">// Output ?</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d  %x  %o</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1c</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1c</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1c</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output ?</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d  %x  %o</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mo">017</span><span class="p">,</span><span class="w"> </span><span class="mo">017</span><span class="p">,</span><span class="w"> </span><span class="mo">017</span><span class="p">);</span><span class="w">    </span><span class="c1">// Output ?</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mh">0x11</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mo">011</span><span class="p">);</span><span class="w">          </span><span class="c1">// Output ?</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2097151</span><span class="p">);</span><span class="w">                  </span><span class="c1">// Output ?</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1FfFFf</span><span class="p">);</span><span class="w">                 </span><span class="c1">// Output ?</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+<span class="c1"># include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">  </span><span class="si">%x</span><span class="s2">  </span><span class="si">%o</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">19</span><span class="p">);</span>       <span class="o">//</span> <span class="n">Output</span><span class="p">:</span> <span class="mi">19</span>  <span class="mi">13</span>  <span class="mi">23</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">  </span><span class="si">%x</span><span class="s2">  </span><span class="si">%o</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mh">0x1c</span><span class="p">,</span> <span class="mh">0x1c</span><span class="p">,</span> <span class="mh">0x1c</span><span class="p">);</span> <span class="o">//</span> <span class="n">Output</span><span class="p">:</span> <span class="mi">28</span>  <span class="mi">1</span><span class="n">c</span>  <span class="mi">34</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">  </span><span class="si">%x</span><span class="s2">  </span><span class="si">%o</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">017</span><span class="p">,</span> <span class="mi">017</span><span class="p">,</span> <span class="mi">017</span><span class="p">);</span>    <span class="o">//</span> <span class="n">Output</span><span class="p">:</span> <span class="mi">15</span>  <span class="n">f</span>   <span class="mi">17</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">11</span> <span class="o">+</span> <span class="mh">0x11</span> <span class="o">+</span> <span class="mi">011</span><span class="p">);</span>          <span class="o">//</span> <span class="n">Output</span><span class="p">:</span> <span class="mi">37</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%x</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">2097151</span><span class="p">);</span>                  <span class="o">//</span> <span class="n">Output</span><span class="p">:</span> <span class="mi">1</span><span class="n">fffff</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mh">0x1FfFFf</span><span class="p">);</span>                 <span class="o">//</span> <span class="n">Output</span><span class="p">:</span> <span class="mi">2097151</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-usual-arithmetic-conversion-promotion">
+<h2>The usual arithmetic conversion (promotion)<a class="headerlink" href="#the-usual-arithmetic-conversion-promotion" title="Link to this heading">#</a></h2>
+<p>The usual arithmetic conversion (promotion) in C follows a set of rules to convert operands to a common type before performing operations. Here’s the hierarchy:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type Hierarchy (bottom to top)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>long double</p></td>
+</tr>
+<tr class="row-odd"><td><p>double</p></td>
+</tr>
+<tr class="row-even"><td><p>float</p></td>
+</tr>
+<tr class="row-odd"><td><p>unsigned long</p></td>
+</tr>
+<tr class="row-even"><td><p>long</p></td>
+</tr>
+<tr class="row-odd"><td><p>unsigned int</p></td>
+</tr>
+<tr class="row-even"><td><p>int</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple">
+<li><p>If either operand is long double:
+→ other operand is converted to long double</p></li>
+<li><p>If either operand is double:
+→ other operand is converted to double</p></li>
+<li><p>If either operand is float:
+→ other operand is converted to float</p></li>
+<li><p>Integral promotions:</p>
+<ul class="simple">
+<li><p>char, short → int</p></li>
+<li><p>If either operand is unsigned:
+→ other operand is converted to unsigned</p></li>
+</ul>
+</li>
+</ol>
+<p>Example:</p>
+<p>int + float = float</p>
+<p>char + int = int</p>
+<p>long + unsigned int = unsigned long</p>
+<p>Here are some expressions and their resulting types based on the above rules:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w">			</span><span class="kt">short</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w">		</span><span class="kt">int</span><span class="w">  </span><span class="n">i</span><span class="p">;</span><span class="w">		</span><span class="kt">unsigned</span><span class="w">  </span><span class="n">u</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w">  </span><span class="n">ul</span><span class="p">;</span><span class="w">		</span><span class="kt">float</span><span class="w">  </span><span class="n">f</span><span class="p">;</span><span class="w">  		</span><span class="kt">double</span><span class="w">  </span><span class="n">d</span><span class="p">;</span><span class="w">  	</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w">  </span><span class="n">ld</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression</p></th>
+<th class="head"><p>Resulting Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">-</span> <span class="pre">s</span> <span class="pre">/</span> <span class="pre">i</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">*</span> <span class="pre">7</span> <span class="pre">-</span> <span class="pre">i</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">*</span> <span class="pre">2.0</span> <span class="pre">-</span> <span class="pre">i</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">*</span> <span class="pre">7</span> <span class="pre">-</span> <span class="pre">i</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">+</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">*</span> <span class="pre">s</span> <span class="pre">*</span> <span class="pre">ul</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">+</span> <span class="pre">5.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ld</span> <span class="pre">+</span> <span class="pre">c</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">+</span> <span class="pre">s</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">-</span> <span class="pre">ul</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">i</span> <span class="pre">/</span> <span class="pre">l</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">long</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">-</span> <span class="pre">l</span></code></p></td>
+<td><p><strong>system dependent</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="explanation-of-examples">
+<h3>Explanation of Examples<a class="headerlink" href="#explanation-of-examples" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">-</span> <span class="pre">s</span> <span class="pre">/</span> <span class="pre">i</span></code></strong>: Both <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span></code> are typically <code class="docutils literal notranslate"><span class="pre">int</span></code>, so the result is an <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">*</span> <span class="pre">7</span> <span class="pre">-</span> <span class="pre">i</span></code></strong>: <code class="docutils literal notranslate"><span class="pre">u</span></code> is <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>, and <code class="docutils literal notranslate"><span class="pre">i</span></code> is <code class="docutils literal notranslate"><span class="pre">int</span></code>. The result is <code class="docutils literal notranslate"><span class="pre">unsigned</span></code> due to the presence of <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">*</span> <span class="pre">2.0</span> <span class="pre">-</span> <span class="pre">i</span></code></strong>: The multiplication with a <code class="docutils literal notranslate"><span class="pre">double</span></code> promotes the result to <code class="docutils literal notranslate"><span class="pre">double</span></code>, so the final type is <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">*</span> <span class="pre">7</span> <span class="pre">-</span> <span class="pre">i</span></code></strong>: <code class="docutils literal notranslate"><span class="pre">f</span></code> is <code class="docutils literal notranslate"><span class="pre">float</span></code>, and since there’s multiplication involved, the result is promoted to <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">+</span> <span class="pre">3</span></code></strong>: Here, both <code class="docutils literal notranslate"><span class="pre">c</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code> are compatible as <code class="docutils literal notranslate"><span class="pre">int</span></code>, so the result remains <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">*</span> <span class="pre">s</span> <span class="pre">*</span> <span class="pre">ul</span></code></strong>: The presence of <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code> makes the whole expression evaluate to <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">+</span> <span class="pre">5.0</span></code></strong>: The presence of a <code class="docutils literal notranslate"><span class="pre">double</span></code> (5.0) causes the result to be promoted to <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ld</span> <span class="pre">+</span> <span class="pre">c</span></code></strong>: Here, <code class="docutils literal notranslate"><span class="pre">ld</span></code> is <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code>, which promotes <code class="docutils literal notranslate"><span class="pre">c</span></code> to <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">+</span> <span class="pre">s</span></code></strong>: Since <code class="docutils literal notranslate"><span class="pre">d</span></code> is <code class="docutils literal notranslate"><span class="pre">double</span></code>, it promotes <code class="docutils literal notranslate"><span class="pre">s</span></code> to <code class="docutils literal notranslate"><span class="pre">double</span></code>, and the result is <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">-</span> <span class="pre">ul</span></code></strong>: This operation involves <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>, resulting in <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">i</span> <span class="pre">/</span> <span class="pre">l</span></code></strong>: The division by <code class="docutils literal notranslate"><span class="pre">l</span></code> (a <code class="docutils literal notranslate"><span class="pre">long</span></code>) results in a <code class="docutils literal notranslate"><span class="pre">long</span></code> type.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">-</span> <span class="pre">l</span></code></strong>: This is <strong>system dependent</strong> because the conversion rules can vary based on the specific system and compiler.</p></li>
+</ul>
+</section>
+</section>
+<section id="cast">
+<h2>Cast<a class="headerlink" href="#cast" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.3</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="n">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="cm">/* i==3*/</span>
+<span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">i</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="cm">/* d==1.5*/</span>
+<span class="n">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="p">)</span><span class="n">i</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">3.3</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">unsigned</span> <span class="n">ui</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="n">d</span><span class="p">;</span>        <span class="o">/*</span> <span class="n">i</span><span class="o">==</span><span class="mi">3</span><span class="o">*/</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">double</span><span class="p">)</span><span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="o">/*</span> <span class="n">d</span><span class="o">==</span><span class="mf">1.5</span><span class="o">*/</span>
+    <span class="n">ui</span> <span class="o">=</span> <span class="p">(</span><span class="n">unsigned</span><span class="p">)</span><span class="n">i</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ui</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="boolean-in-c">
+<h2>Boolean in C<a class="headerlink" href="#boolean-in-c" title="Link to this heading">#</a></h2>
+<p>Numeric values are used instead:  0 ⇔ false, ≠0 ⇔true</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">      </span><span class="c1">// initialize flag</span>
+<span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">          </span><span class="c1">// set flag</span>
+<span class="k">if</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">         </span><span class="c1">// check flag</span>
+<span class="w">    </span><span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flow-of-control-chapter-4">
+<h1>Flow of Control (Chapter 4)<a class="headerlink" href="#flow-of-control-chapter-4" title="Link to this heading">#</a></h1>
+<section id="operators-and-associativity">
+<h2>Operators and Associativity<a class="headerlink" href="#operators-and-associativity" title="Link to this heading">#</a></h2>
+<p>This table shows C operators and their associativity (the order in which operations are performed when multiple operators of the same precedence appear).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator Type</p></th>
+<th class="head"><p>Associativity</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Unary (+, -, ++, –, !)</p></td>
+<td><p>Right to left</p></td>
+<td><p>!++x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Multiplicative (*, /, %)</p></td>
+<td><p>Left to right</p></td>
+<td><p>a * b / c</p></td>
+</tr>
+<tr class="row-even"><td><p>Additive (+, -)</p></td>
+<td><p>Left to right</p></td>
+<td><p>a + b - c</p></td>
+</tr>
+<tr class="row-odd"><td><p>Relational (&lt;, &lt;=, &gt;, &gt;=)</p></td>
+<td><p>Left to right</p></td>
+<td><p>a &lt; b &lt;= c</p></td>
+</tr>
+<tr class="row-even"><td><p>Equality (==, !=)</p></td>
+<td><p>Left to right</p></td>
+<td><p>a == b != c</p></td>
+</tr>
+<tr class="row-odd"><td><p>Logical AND (&amp;&amp;)</p></td>
+<td><p>Left to right</p></td>
+<td><p>a &amp;&amp; b &amp;&amp; c</p></td>
+</tr>
+<tr class="row-even"><td><p>Logical OR (||)</p></td>
+<td><p>Left to right</p></td>
+<td><p>a || b || c</p></td>
+</tr>
+<tr class="row-odd"><td><p>Assignment (=, +=, -=, *=, /=, etc.)</p></td>
+<td><p>Right to left</p></td>
+<td><p>a = b = c</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Right to left: unary operators</span>
+<span class="o">!!</span><span class="n">x</span><span class="w">        </span><span class="c1">// evaluated as !(!(x))</span>
+
+<span class="c1">// Left to right: arithmetic</span>
+<span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">c</span><span class="w">  </span><span class="c1">// evaluated as (a + b) - c</span>
+
+<span class="c1">// Right to left: assignment</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w">  </span><span class="c1">// evaluated as a = (b = 5)</span>
+</pre></div>
+</div>
+</section>
+<section id="increment-operators">
+<h2>Increment Operators<a class="headerlink" href="#increment-operators" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">c</span><span class="p">;</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="o">++</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="w"> </span><span class="err">“</span><span class="o">%</span><span class="n">d</span><span class="w"> </span><span class="o">%</span><span class="n">d</span><span class="w"> </span><span class="o">%</span><span class="n">d</span><span class="err">\</span><span class="n">n</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="o">++</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// prints ?</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">++</span><span class="n">x</span><span class="w">  </span><span class="c1">// Pre-increment: increment first, then use value</span>
+<span class="n">x</span><span class="o">++</span><span class="w">  </span><span class="c1">// Post-increment: use value first, then increment</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="o">++</span><span class="n">c</span><span class="p">;</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">c</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">% d</span><span class="s2"> </span><span class="si">% d</span><span class="s2"> </span><span class="si">% d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">++</span><span class="p">);</span> <span class="o">//</span> <span class="err">“</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span><span class="err">”</span> <span class="ow">is</span> <span class="n">printed</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="declarations-and-initializations-1">
+<h2>Declarations and Initializations 1<a class="headerlink" href="#declarations-and-initializations-1" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+<span class="w">	</span><span class="kt">char</span><span class="w">	</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;w&#39;</span><span class="p">;</span>
+<span class="w">	</span><span class="kt">int</span><span class="w">	</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-7</span><span class="p">;</span>
+<span class="w">	</span><span class="kt">double</span><span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7e+33</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.001</span><span class="p">;</span>
+<span class="w">	</span><span class="p">...</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression</p></th>
+<th class="head"><p>Equivalent Expression</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>‘a’ + 1 &lt; c</p></td>
+<td><p>(‘a’ + 1) &lt; c</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>-i - 5 * j &gt;= k + 1</p></td>
+<td><p>((-i) - (5 * j)) &gt;= (k + 1)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>3 &lt; j &lt; 5</p></td>
+<td><p>(3 &lt; j) &lt; 5</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>x-3.333 &lt;= x + y</p></td>
+<td><p>(x - 3.333) &lt;= (x + y)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>x &lt; x + y</p></td>
+<td><p>x &lt; (x + y)</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="declarations-and-initializations-2">
+<h2>Declarations and Initializations 2<a class="headerlink" href="#declarations-and-initializations-2" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression</p></th>
+<th class="head"><p>Equivalent Expression</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>i == j</p></td>
+<td><p>j == i</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>i != j</p></td>
+<td><p>j != i</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>i + j + k == -2 * -k</p></td>
+<td><p>((i + j) + k) == ((-2) * (-k))</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="declarations-and-initializations-3">
+<h2>Declarations and Initializations 3<a class="headerlink" href="#declarations-and-initializations-3" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.3</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression</p></th>
+<th class="head"><p>Equivalent Expression</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>!c</p></td>
+<td><p>!c</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>!(i - j)</p></td>
+<td><p>!(i - j)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>!i - j</p></td>
+<td><p>(!i) - j</p></td>
+<td><p>-7</p></td>
+</tr>
+<tr class="row-odd"><td><p>!!(x + y)</p></td>
+<td><p>!(!((x + y)))</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>!x * !!y</p></td>
+<td><p>(!x) * (!(!y))</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="declarations-and-initializations-4">
+<h2>Declarations and Initializations 4<a class="headerlink" href="#declarations-and-initializations-4" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;B&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.3</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression</p></th>
+<th class="head"><p>Equivalent Expression</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>i &amp;&amp; j &amp;&amp; k</p></td>
+<td><p>(i &amp;&amp; j) &amp;&amp; k</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>x || i &amp;&amp; j - 3</p></td>
+<td><p>x || (i &amp;&amp; (j - 3))</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>i &lt; j &amp;&amp; x &lt; y</p></td>
+<td><p>(i &lt; j) &amp;&amp; (x &lt; y)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>i &lt; j || x &lt; y</p></td>
+<td><p>(i &lt; j) || (x &lt; y)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>‘A’ &lt;= c &amp;&amp; c &lt;= ‘Z’</p></td>
+<td><p>(‘A’ &lt;= c) &amp;&amp; (c &lt;= ‘Z’)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>c - 1 == ‘A’ || c + 1 == ‘Z’</p></td>
+<td><p>((c - 1) == ‘A’) || ((c + 1) == ‘Z’)</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="the-if-statement">
+<h2>The <strong>if</strong> Statement<a class="headerlink" href="#the-if-statement" title="Link to this heading">#</a></h2>
+<p>An if / else statement:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="w"> </span><span class="err">“</span><span class="o">*</span><span class="w"> </span><span class="o">**</span><span class="err">\</span><span class="n">n</span><span class="err">”</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="w"> </span><span class="err">“##</span><span class="w"> </span><span class="err">#\</span><span class="n">n</span><span class="err">”</span><span class="p">);</span>
+<span class="w">        </span><span class="n">other</span><span class="w"> </span><span class="n">commands</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>An if statement, not followed by an else statement:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="w"> </span><span class="err">“</span><span class="o">*</span><span class="w"> </span><span class="o">**</span><span class="err">\</span><span class="n">n</span><span class="err">”</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="w"> </span><span class="err">“</span><span class="n">another</span><span class="w"> </span><span class="n">command</span><span class="err">\</span><span class="n">n</span><span class="err">”</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If the body of an if…else statement has only one statement, you do not need to use brackets <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<section id="indentation">
+<h3>Indentation<a class="headerlink" href="#indentation" title="Link to this heading">#</a></h3>
+<p>Indentation does not influence the else statement</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;***</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="k">else</span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;###</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+</pre></div>
+</div>
+<p>is equivalent to</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;***</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="k">else</span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;###</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="dangling-else">
+<h3>Dangling else<a class="headerlink" href="#dangling-else" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Dangling_else">Dangling else</a>: What about the else???</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;***</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="k">else</span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;###</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+</pre></div>
+</div>
+<p><strong>NOT</strong> equivalent to</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;***</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;###</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Both x and y are positive</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;x is not positive</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="best-practice">
+<h3>Best Practice<a class="headerlink" href="#best-practice" title="Link to this heading">#</a></h3>
+<p>Best way to use use brackets.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number1</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">number2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">number2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Result: %d = %d&quot;</span><span class="p">,</span><span class="n">number1</span><span class="p">,</span><span class="n">number2</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Result: %d &gt; %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="n">number2</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Result: %d &lt; %d&quot;</span><span class="p">,</span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="n">number2</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+</pre></div>
+</div>
+</section>
+</section>
+<section id="the-while-statement">
+<h2>The while Statement<a class="headerlink" href="#the-while-statement" title="Link to this heading">#</a></h2>
+<p>Loop until i is equal to, or bigger than n.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">++</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">    </span><span class="n">factorial</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Loop until the EOF character is encountered.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getchar</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="err">‘</span><span class="n">a</span><span class="err">’</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="err">‘</span><span class="n">z</span><span class="err">’</span><span class="w"> </span><span class="p">)</span>
+<span class="w">		</span><span class="o">++</span><span class="n">lowercase_letter_cnt</span><span class="p">;</span>
+<span class="w">	</span><span class="o">++</span><span class="n">total_cnt</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="the-for-statement">
+<h2>The for Statement<a class="headerlink" href="#the-for-statement" title="Link to this heading">#</a></h2>
+<p>Here we sum the numbers from 1 to 10:</p>
+<table>
+<tr>
+<td>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</pre></div>
+</div>
+</td> <td>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;)</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</pre></div>
+</div>
+</td> <td>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</pre></div>
+</div>
+</td> </tr> </table>
+<p>Here we have an infinite loop!!!</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">	</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span>
+<span class="p">}</span>
+
+</pre></div>
+</div>
+<p>The loop stops when the condition (middle statement) evaluates to 0.</p>
+</section>
+<section id="the-comma-operator">
+<h2>The comma Operator<a class="headerlink" href="#the-comma-operator" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Usually used in “for loops” - allows for multiple initializations and multiple processing of indices.</p></li>
+<li><p>Has the lowest precedence of all the operators in C</p></li>
+<li><p>left-to-right Associativity.</p></li>
+<li><p>The expression exp1,exp2 as a whole has the value and type of the right operand (i.e. exp2)</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.3</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression</p></th>
+<th class="head"><p>Equivalent Expression</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">j</span> <span class="pre">=</span> <span class="pre">2,</span> <span class="pre">++k</span> <span class="pre">+</span> <span class="pre">1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">((i</span> <span class="pre">=</span> <span class="pre">1),</span> <span class="pre">(j</span> <span class="pre">=</span> <span class="pre">2)),</span> <span class="pre">((++k)</span> <span class="pre">+</span> <span class="pre">1)</span></code></p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">!=</span> <span class="pre">1,</span> <span class="pre">++x</span> <span class="pre">*</span> <span class="pre">2.0</span> <span class="pre">+</span> <span class="pre">1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(k</span> <span class="pre">!=</span> <span class="pre">1),</span> <span class="pre">(((++x)</span> <span class="pre">*</span> <span class="pre">2.0)</span> <span class="pre">+</span> <span class="pre">1)</span></code></p></td>
+<td><p>9.6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="example-the-for-statement">
+<h2>Example - The for Statement<a class="headerlink" href="#example-the-for-statement" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="w"> </span><span class="p">)</span>
+<span class="w">   </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="short-circuit-evaluation">
+<h2>Short-circuit Evaluation (&amp;&amp;,||)<a class="headerlink" href="#short-circuit-evaluation" title="Link to this heading">#</a></h2>
+<p>Short-circuit evaluation is an optimization technique used in logical operations where the second operand is only evaluated if necessary.</p>
+<p>Behavior</p>
+<ul class="simple">
+<li><p>&amp;&amp;: If the first operand is false, the second is not evaluated</p></li>
+<li><p>||: If the first operand is true, the second is not evaluated</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">....)){</span>
+<span class="w">                </span><span class="c1">// 1/i not evaluated if i==0</span>
+
+<span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Benefits</p>
+<ol class="arabic simple">
+<li><p>Improved efficiency</p></li>
+<li><p>Avoids potential errors (e.g., division by zero)</p></li>
+<li><p>Enables conditional execution of code</p></li>
+</ol>
+<p>Best Practices</p>
+<ul class="simple">
+<li><p>Use parentheses for clarity in complex expressions</p></li>
+<li><p>Be cautious with expressions that have side effects</p></li>
+</ul>
+</section>
+<section id="the-do-while-statement">
+<h2>The do-while Statement<a class="headerlink" href="#the-do-while-statement" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="n">printf</span><span class="p">(</span><span class="w"> </span><span class="err">“</span><span class="n">Input</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">positive</span><span class="w"> </span><span class="n">integer</span><span class="o">:</span><span class="w"> </span><span class="err">”</span><span class="w"> </span><span class="p">);</span>
+<span class="w">	</span><span class="n">scanf</span><span class="p">(</span><span class="w"> </span><span class="err">“</span><span class="o">%</span><span class="n">d</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="w"> </span><span class="p">);</span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">	     </span><span class="n">printf</span><span class="p">(</span><span class="w"> </span><span class="err">“\</span><span class="n">nERROR</span><span class="p">;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">again</span><span class="o">!</span><span class="err">\</span><span class="n">n</span><span class="err">\</span><span class="n">n</span><span class="err">”</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="the-break-command">
+<h2>The break Command<a class="headerlink" href="#the-break-command" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">scanf</span><span class="p">(</span><span class="w"> </span><span class="err">“</span><span class="o">%</span><span class="n">f</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="cm">/* Exit the loop if x is negative */</span>
+
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="w"> </span><span class="err">“</span><span class="o">%</span><span class="w"> </span><span class="n">f</span><span class="err">\</span><span class="n">n</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cm">/*break jumps to here!!*/</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="the-continue-command">
+<h2>The continue Command<a class="headerlink" href="#the-continue-command" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">TOTAL</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getchar</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="err">`</span><span class="mi">0</span><span class="w"> </span><span class="err">&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="err">`</span><span class="mi">9</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">continue</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Jump to the end of the current iteration to ignore an uninteresting case */</span>
+<span class="w">        </span><span class="p">.</span>
+<span class="w">        </span><span class="p">.</span>
+<span class="w">        </span><span class="p">.</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="switch-statement">
+<h2>Switch Statement<a class="headerlink" href="#switch-statement" title="Link to this heading">#</a></h2>
+<p>The cases are constant integral expressions with unique values, indicating labels to jump to (according to the value of c)</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="cm">/* value to be evaluated (integral expression) */</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="o">++</span><span class="n">a_cnt</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="o">++</span><span class="n">b_cnt</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">:</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;C&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="o">++</span><span class="n">C_cnt</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="o">++</span><span class="n">other_cnt</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">char</span> <span class="n">grade</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span><span class="p">;</span>
+
+    <span class="n">switch</span> <span class="p">(</span><span class="n">grade</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="s1">&#39;A&#39;</span><span class="p">:</span>
+        <span class="k">case</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span>
+        <span class="k">case</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;You passed!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span>
+        <span class="k">case</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;You failed.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="n">default</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Invalid grade.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-conditional-operator-exp1-exp2-exp3">
+<h2>The conditional operator  exp1?exp2:exp3<a class="headerlink" href="#the-conditional-operator-exp1-exp2-exp3" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">exp2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">exp3</span><span class="p">;</span><span class="w">  </span>
+</pre></div>
+</div>
+<p>is  Equivalent to:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">exp1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp3</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">;</span><span class="w"> </span><span class="cm">/* ‘a‘ has a decimal value of 97 */</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7.07</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression</p></th>
+<th class="head"><p>Equivalent Expression</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">j</span> <span class="pre">?</span> <span class="pre">a</span> <span class="pre">-</span> <span class="pre">1</span> <span class="pre">:</span> <span class="pre">b</span> <span class="pre">+</span> <span class="pre">1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(i</span> <span class="pre">==</span> <span class="pre">j)</span> <span class="pre">?</span> <span class="pre">(a</span> <span class="pre">-</span> <span class="pre">1)</span> <span class="pre">:</span> <span class="pre">(b</span> <span class="pre">+</span> <span class="pre">1)</span></code></p></td>
+<td><p>99</p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">%</span> <span class="pre">3</span> <span class="pre">==</span> <span class="pre">0</span> <span class="pre">?</span> <span class="pre">i</span> <span class="pre">+</span> <span class="pre">4</span> <span class="pre">:</span> <span class="pre">x</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">((j</span> <span class="pre">%</span> <span class="pre">3)</span> <span class="pre">==</span> <span class="pre">0)</span> <span class="pre">?</span> <span class="pre">(i</span> <span class="pre">+</span> <span class="pre">4)</span> <span class="pre">:</span> <span class="pre">x</span></code></p></td>
+<td><p>7.07</p></td>
+<td><p>double</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">%</span> <span class="pre">3</span> <span class="pre">?</span> <span class="pre">i</span> <span class="pre">+</span> <span class="pre">4</span> <span class="pre">:</span> <span class="pre">x</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(j</span> <span class="pre">%</span> <span class="pre">3)</span> <span class="pre">?</span> <span class="pre">(i</span> <span class="pre">+</span> <span class="pre">4)</span> <span class="pre">:</span> <span class="pre">x</span></code></p></td>
+<td><p>5.0</p></td>
+<td><p>double</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The type is determined by both exp2 and exp3, irrespective of which is evaluated!!!</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-quick-intro-to-io-chapter-11">
+<h1>A quick intro to IO (Chapter 11)<a class="headerlink" href="#a-quick-intro-to-io-chapter-11" title="Link to this heading">#</a></h1>
+<section id="printf">
+<h2>Printf<a class="headerlink" href="#printf" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="o">&lt;</span><span class="n">control</span><span class="w"> </span><span class="n">string</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">arg2</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">arg2</span><span class="o">&gt;</span><span class="p">,</span><span class="err">…</span><span class="p">,</span><span class="o">&lt;</span><span class="n">argn</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">     </span><span class="n">printf</span><span class="p">(</span><span class="err">“</span><span class="n">The</span><span class="w"> </span><span class="n">bill</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">%</span><span class="n">d</span><span class="err">\</span><span class="n">n</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="cm">/* x == 100 */</span>
+<span class="w">     </span><span class="n">The</span><span class="w"> </span><span class="n">bill</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">100</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">     </span><span class="n">printf</span><span class="p">(</span><span class="err">“</span><span class="n">My</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">%</span><span class="n">s</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">am</span><span class="w"> </span><span class="o">%</span><span class="n">d</span><span class="w"> </span><span class="n">years</span><span class="w"> </span><span class="n">old</span><span class="err">\</span><span class="n">n</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="err">“</span><span class="n">John</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
+<span class="w">     </span><span class="n">My</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">John</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">am</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="n">years</span><span class="w"> </span><span class="n">old</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The % symbol introduces conversion specification</p></li>
+<li><p>Returns the number of characters printed</p></li>
+</ul>
+</section>
+<section id="printf-conversion-characters">
+<h2>Printf Conversion Characters<a class="headerlink" href="#printf-conversion-characters" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Conversion Character</p></th>
+<th class="head"><p>How the Corresponding Argument is Printed</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">c</span></code></p></td>
+<td><p>as a character</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">d</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code></p></td>
+<td><p>as a decimal integer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">u</span></code></p></td>
+<td><p>as an unsigned decimal integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">o</span></code></p></td>
+<td><p>as an unsigned octal integer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p>as an unsigned hexadecimal integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">f</span></code></p></td>
+<td><p>as a floating-point number; example: <code class="docutils literal notranslate"><span class="pre">7.123000e+00</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">E</span></code></p></td>
+<td><p>as a floating-point number; example: <code class="docutils literal notranslate"><span class="pre">7.123000E+00</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">g</span></code></p></td>
+<td><p>as a floating-point number; example: <code class="docutils literal notranslate"><span class="pre">7.123000</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">G</span></code></p></td>
+<td><p>in the E-format or f-format, whichever is shorter</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+<td><p>as a string</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p</span></code></p></td>
+<td><p>the corresponding argument is a pointer to <code class="docutils literal notranslate"><span class="pre">void</span></code>; its value is printed as a hexadecimal number</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">n</span></code></p></td>
+<td><p>the corresponding argument is a pointer to an integer into which the number of characters printed so far is stored</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p>with the format <code class="docutils literal notranslate"><span class="pre">%%</span></code> a single <code class="docutils literal notranslate"><span class="pre">%</span></code> is written to the output stream; there is no corresponding argument to be converted</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="format-specifiers-and-how-they-are-printed">
+<h2>Format Specifiers and How They are Printed<a class="headerlink" href="#format-specifiers-and-how-they-are-printed" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">‘</span><span class="n">A</span><span class="err">’</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">“</span><span class="n">Blue</span><span class="w"> </span><span class="n">moon</span><span class="o">!</span><span class="err">”</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Printed</p></th>
+<th class="head"><p>Remarks</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%c</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;A&quot;</span></code></p></td>
+<td><p>field width 1 by default</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%2c</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">A&quot;</span></code></p></td>
+<td><p>field width 2, right adjusted</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%-3c</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;A</span>&#160; <span class="pre">&quot;</span></code></p></td>
+<td><p>field width 3, left adjusted</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%s</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;Blue</span> <span class="pre">moon!&quot;</span></code></p></td>
+<td><p>field width 10 by default</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%3s</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;Blue</span> <span class="pre">moon!&quot;</span></code></p></td>
+<td><p>more space is needed</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%.6s</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;Blue</span> <span class="pre">m&quot;</span></code></p></td>
+<td><p>precision 6</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%-11.8s</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;Blue</span> <span class="pre">moo</span>&#160;&#160; <span class="pre">&quot;</span></code></p></td>
+<td><p>precision 8, left adjusted</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.123456789</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Printed</p></th>
+<th class="head"><p>Remarks</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%d</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;123&quot;</span></code></p></td>
+<td><p>field width 3 by default</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%05d</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;00123&quot;</span></code></p></td>
+<td><p>padded with zeros</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%7o</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">173&quot;</span></code></p></td>
+<td><p>right adjusted, octal</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%-9x</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;7b</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;</span></code></p></td>
+<td><p>left adjusted, hexadecimal</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%-9#x</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;0x7b</span>&#160;&#160;&#160;&#160; <span class="pre">&quot;</span></code></p></td>
+<td><p>left adjusted, hexadecimal</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%10.5f</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;</span>&#160;&#160; <span class="pre">0.12346&quot;</span></code></p></td>
+<td><p>field width 10, precision 5</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%-12.5e</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;1.23457e-01&quot;</span></code></p></td>
+<td><p>left adjusted, e-format</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="scanf">
+<h2>Scanf<a class="headerlink" href="#scanf" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="o">&lt;</span><span class="n">control</span><span class="w"> </span><span class="n">string</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">arg2</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">arg2</span><span class="o">&gt;</span><span class="p">,</span><span class="err">…</span><span class="p">,</span><span class="o">&lt;</span><span class="n">argn</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">     </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">     </span><span class="n">scanf</span><span class="p">(</span><span class="err">“</span><span class="o">%</span><span class="n">d</span><span class="w"> </span><span class="o">%</span><span class="n">d</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+<span class="w">     </span><span class="n">The</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">assign</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Coverts non-white-space characters (unless using “%c”)</p></li>
+<li><p>Returns the number of successful conversions</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Enter two numbers: &quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;The sum is: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "TauInnov/NewCourse",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Development_Environment.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Software Project</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The C programming language</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-c">Why C ?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-vs-java">C vs. Java</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-topics">C Topics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#todays-class-basic-c">Today’s class: Basic C</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lexical-elements-chapter-2">Lexical Elements (chapter 2)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kewords">Kewords</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifiers">Identifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-data-types-chapter-3">Fundamental data types (Chapter 3 )</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-types">Integral Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-types">Floating Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-differences">Key Differences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int-representation">Int Representation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-s-complement-for-signed-values">Two’s Complement for Signed Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alert-integer-overflow-or-wrap-around">Alert: integer overflow (or wrap-around)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-representation-in-c">Floating-Point Representation in C</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#value-calculation">Value Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code">Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#double-precision-double-64-bits">Double Precision (<code class="docutils literal notranslate"><span class="pre">double</span></code>): 64 bits</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#size-of-data-types-in-c">Size of Data Types in C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constants-in-c">Constants in C</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii-character-constants">ASCII Character Constants</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decimal-hexadecimal-and-octal-representation-in-c">Decimal, Hexadecimal, and Octal Representation in C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-usual-arithmetic-conversion-promotion">The usual arithmetic conversion (promotion)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-examples">Explanation of Examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cast">Cast</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-in-c">Boolean in C</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-of-control-chapter-4">Flow of Control (Chapter 4)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operators-and-associativity">Operators and Associativity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#increment-operators">Increment Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initializations-1">Declarations and Initializations 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initializations-2">Declarations and Initializations 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initializations-3">Declarations and Initializations 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initializations-4">Declarations and Initializations 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-statement">The <strong>if</strong> Statement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation">Indentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dangling-else">Dangling else</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practice">Best Practice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-while-statement">The while Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-for-statement">The for Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-comma-operator">The comma Operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-the-for-statement">Example - The for Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#short-circuit-evaluation">Short-circuit Evaluation (&amp;&amp;,||)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-do-while-statement">The do-while Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-break-command">The break Command</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-continue-command">The continue Command</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-statement">Switch Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-conditional-operator-exp1-exp2-exp3">The conditional operator  exp1?exp2:exp3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-intro-to-io-chapter-11">A quick intro to IO (Chapter 11)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printf">Printf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printf-conversion-characters">Printf Conversion Characters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-specifiers-and-how-they-are-printed">Format Specifiers and How They are Printed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scanf">Scanf</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

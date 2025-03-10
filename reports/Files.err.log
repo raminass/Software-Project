@@ -1,0 +1,97 @@
+Traceback (most recent call last):
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# @title
+%%writefile double_space.c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Function prototypes
+void double_space(FILE *ifp, FILE *ofp);
+void prn_info(const char *pgm_name);
+void prn_err_msg(const char *file_name);
+
+int main(int argc, char **argv)
+{
+    int rtVal = 0;                 // Return value for program exit
+    FILE *ifp = NULL, *ofp = NULL; // File pointers
+
+    // Ensure the program is invoked with the correct number of arguments
+    if (argc == 3)
+    {
+        ifp = fopen(argv[1], "r"); // Open input file in read mode
+        if (ifp != NULL)
+        {
+            ofp = fopen(argv[2], "w"); // Open output file in write mode
+            if (ofp != NULL)
+            {
+                double_space(ifp, ofp); // Perform double-spacing
+                fclose(ofp);            // Close output file
+            }
+            else
+                rtVal = 2; // Error opening output file
+            fclose(ifp);   // Close input file
+        }
+        else
+            rtVal = 1; // Error opening input file
+    }
+    else
+    {
+        rtVal = -1;        // Incorrect usage
+        prn_info(argv[0]); // Print usage instructions
+    }
+
+    // Print error message if applicable
+    if (rtVal > 0)
+        prn_err_msg(argv[rtVal]);
+
+    return rtVal; // Return appropriate exit code
+}
+
+void prn_info(const char *pgm_name)
+{
+    printf("\nUsage: %s infile outfile\n", pgm_name);
+    printf("The contents of infile will be double-spaced and written to outfile.\n");
+}
+
+void prn_err_msg(const char *file_name)
+{
+    printf("\nError: Could not open file %s\n", file_name);
+}
+
+void double_space(FILE *ifp, FILE *ofp)
+{
+    int c = 0;
+
+    // Read input file character by character
+    while ((c = fgetc(ifp)) != EOF)
+    {
+        fputc(c, ofp); // Write character to output file
+        if (c == '\n') // If newline is encountered, add another newline
+            fputc('\n', ofp);
+    }
+}
+
+------------------
+
+
+[0;36m  Cell [0;32mIn[1], line 6[0;36m[0m
+[0;31m    // Function prototypes[0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+

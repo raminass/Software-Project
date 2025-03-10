@@ -1,0 +1,1159 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Arrays (chapter 6) &#8212; Web Course</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'arrays_pointers';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Development_Environment.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Web Course</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Development_Environment.html">
+                    Software Project
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Content</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduction_to_C.html">The C programming language</a></li>
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/TauInnov/book/master/v2/gh/TauInnov/NewCourse/main?urlpath=tree/docs/arrays_pointers.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/TauInnov/NewCourse/blob/main/docs/arrays_pointers.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/TauInnov/NewCourse" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/TauInnov/NewCourse/issues/new?title=Issue%20on%20page%20%2Farrays_pointers.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/arrays_pointers.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Arrays (chapter 6)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Arrays (chapter 6)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-dimensional-arrays">One Dimensional Arrays</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers">Pointers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-they-important">Why are they important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initializations">Declarations and Initializations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#call-by-reference">Call by reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic">Pointer Arithmetic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic-and-element-size">Pointer Arithmetic and Element Size</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-and-pointers">Arrays and Pointers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#illegal-expressions">Illegal expressions !!!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-an-array-to-a-function-1">Passing an array to a function 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-an-array-to-a-function-2">Passing an array to a function 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#count-the-number-of-words-in-a-string">Count the number of words in a string</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#const">Const</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-const-int">static const int</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#const-int-p">const int *p</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int-const-p">int * const p</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#const-int-const-p">const int * const p</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a href="https://colab.research.google.com/github/raminass/Software-Project/blob/main/arrays_pointers.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="arrays-chapter-6">
+<h1>Arrays (chapter 6)<a class="headerlink" href="#arrays-chapter-6" title="Link to this heading">#</a></h1>
+<section id="one-dimensional-arrays">
+<h2>One Dimensional Arrays<a class="headerlink" href="#one-dimensional-arrays" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define N 100</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"> </span><span class="cm">/* space for a[0], ..., a[99] is allocated */</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="cm">/* process element a[ i ] */</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="mf">4.0</span><span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">-7</span><span class="p">};</span>
+
+<span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">“</span><span class="n">abc</span><span class="err">”</span><span class="p">;</span>
+
+<span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\0</span><span class="s">&quot;</span><span class="p">};</span>
+
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pointers">
+<h1>Pointers<a class="headerlink" href="#pointers" title="Link to this heading">#</a></h1>
+<p><img alt="image.png" src="data:image/png;base64,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" /></p>
+<section id="why-are-they-important">
+<h2>Why are they important?<a class="headerlink" href="#why-are-they-important" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Call by reference</p></li>
+<li><p>Efficient argument passing to functions</p></li>
+<li><p>String handling</p></li>
+<li><p>Dynamic memory allocation</p></li>
+<li><p>Efficient memory manipulation</p></li>
+</ul>
+</section>
+<section id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s%d</span><span class="se">\n</span><span class="s">%s%p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Value of i : &quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Location of i : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> location.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s%d</span><span class="se">\n</span><span class="si">%s</span><span class="s2">%p</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;Value of i : &quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="s2">&quot;Location of i : &quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+    <span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>location.c<span class="w"> </span>-o<span class="w"> </span>location<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./location
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Link to this heading">#</a></h2>
+<p>What will happen ?</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+
+    <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s%d</span><span class="s2"> </span><span class="si">%s%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;Value of a : &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s2">&quot;Value of b : &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="declarations-and-initializations">
+<h2>Declarations and Initializations<a class="headerlink" href="#declarations-and-initializations" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w">     </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">r</span><span class="p">;</span>
+<span class="kt">double</span><span class="w">  </span><span class="n">x</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression</p></th>
+<th class="head"><p>Equivalent Expression</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">==</span> <span class="pre">&amp;i</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">==</span> <span class="pre">(</span> <span class="pre">&amp;i</span> <span class="pre">)</span></code></p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">**&amp;p</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">(</span> <span class="pre">*</span> <span class="pre">(</span> <span class="pre">&amp;p</span> <span class="pre">)</span> <span class="pre">)</span></code></p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">&amp;x</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">(</span> <span class="pre">&amp;</span> <span class="pre">x</span> <span class="pre">)</span></code></p></td>
+<td><p>illegal</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">*</span> <span class="pre">*p</span> <span class="pre">/</span> <span class="pre">*q</span> <span class="pre">+</span> <span class="pre">7</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(((</span> <span class="pre">7</span> <span class="pre">*</span> <span class="pre">(</span> <span class="pre">*p</span> <span class="pre">)</span> <span class="pre">))</span> <span class="pre">/</span> <span class="pre">(</span> <span class="pre">*q</span> <span class="pre">))</span> <span class="pre">+</span> <span class="pre">7</span></code></p></td>
+<td><p>11</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*(</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">&amp;j</span> <span class="pre">)</span> <span class="pre">*=</span> <span class="pre">*p</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">*(</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">(</span> <span class="pre">&amp;j</span> <span class="pre">)</span> <span class="pre">)</span> <span class="pre">)</span> <span class="pre">*=</span> <span class="pre">(</span> <span class="pre">*p</span> <span class="pre">)</span></code></p></td>
+<td><p>15</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Explanation of Selected Expressions</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">==</span> <span class="pre">&amp;i</span></code>: Checks if <code class="docutils literal notranslate"><span class="pre">p</span></code> points to the address of <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**&amp;p</span></code>: Dereferences twice through <code class="docutils literal notranslate"><span class="pre">p</span></code>’s address, effectively accessing the value of the variable <code class="docutils literal notranslate"><span class="pre">p</span></code> points to.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">&amp;x</span></code>: Attempts to assign <code class="docutils literal notranslate"><span class="pre">r</span></code> to the address of <code class="docutils literal notranslate"><span class="pre">x</span></code>, but is labeled “illegal” due to the expression’s context or constraints.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">*</span> <span class="pre">*p</span> <span class="pre">/</span> <span class="pre">*q</span> <span class="pre">+</span> <span class="pre">7</span></code>: Combines dereferencing and arithmetic.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*(</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">&amp;j</span> <span class="pre">)</span> <span class="pre">*=</span> <span class="pre">*p</span></code>: Assigns <code class="docutils literal notranslate"><span class="pre">r</span></code> to point to <code class="docutils literal notranslate"><span class="pre">j</span></code>, then multiplies <code class="docutils literal notranslate"><span class="pre">j</span></code>’s value by <code class="docutils literal notranslate"><span class="pre">*p</span></code>.</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="cm">/* equivalent to p = 0 */</span>
+
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>
+
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="mi">1776</span><span class="p">;</span><span class="w"> </span><span class="cm">/* an absolute address in memory,</span>
+<span class="cm">                    This is a risky practice unless you’re managing memory directly or</span>
+<span class="cm">                    working in low-level hardware contexts*/</span>
+</pre></div>
+</div>
+<p><strong>Declaration</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">q</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">v</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Legal Assignment</strong></p></th>
+<th class="head"><p><strong>Illegal Assignment</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">0;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">1;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">(int</span> <span class="pre">*)</span> <span class="pre">1;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">=</span> <span class="pre">1;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">v</span> <span class="pre">=</span> <span class="pre">q;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">q;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">(int</span> <span class="pre">*)</span> <span class="pre">q;</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>More illegal</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="mi">3</span><span class="p">,</span>
+<span class="o">&amp;</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">99</span><span class="p">),</span>
+</pre></div>
+</div>
+</section>
+<section id="call-by-reference">
+<h2>Call by reference<a class="headerlink" href="#call-by-reference" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="cm">/* Define pointers as params */</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="w">    </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Use dereferenced values */</span>
+<span class="w">    </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">q</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">    </span><span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">);</span><span class="w"> </span><span class="cm">/* Pass addresses as arguments */</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> swap.c
+<span class="c1"># include &lt;stdio.h&gt;</span>
+<span class="n">void</span> <span class="n">swap</span><span class="p">(</span><span class="nb">int</span> <span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="nb">int</span> <span class="o">*</span><span class="n">q</span><span class="p">)</span> <span class="o">/*</span> <span class="n">Define</span> <span class="n">pointers</span> <span class="k">as</span> <span class="n">params</span> <span class="o">*/</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span> <span class="o">/*</span> <span class="n">Use</span> <span class="n">dereferenced</span> <span class="n">values</span> <span class="o">*/</span>
+    <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">*</span><span class="n">q</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">q</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">);</span> <span class="o">/*</span> <span class="n">Pass</span> <span class="n">addresses</span> <span class="k">as</span> <span class="n">arguments</span> <span class="o">*/</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>swap.c<span class="w"> </span>-o<span class="w"> </span>swap<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./swap
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pointer-arithmetic">
+<h2>Pointer Arithmetic<a class="headerlink" href="#pointer-arithmetic" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p+1</span></code>: address of next element of the same type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p-1</span></code>: address of previous element of the same type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p-q</span></code>: number of elements between p and q.</p></li>
+</ul>
+</section>
+<section id="pointer-arithmetic-and-element-size">
+<h2>Pointer Arithmetic and Element Size<a class="headerlink" href="#pointer-arithmetic-and-element-size" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="cm">/* points to the base of the array */</span>
+
+<span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="cm">/* equivalent to q = &amp;a[ 1 ] */</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w"> </span><span class="cm">/* 1 is printed */</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">q</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">p</span><span class="p">);</span><span class="w"> </span><span class="cm">/* sizeof(double)==8 is printed */</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> pointer-arith.c
+
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">double</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="n">double</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">,</span> <span class="o">*</span><span class="n">q</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>       <span class="o">//</span> <span class="n">Pointer</span> <span class="n">p</span> <span class="n">now</span> <span class="n">points</span> <span class="n">to</span> <span class="n">the</span> <span class="n">start</span> <span class="n">of</span> <span class="n">array</span> <span class="n">a</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>   <span class="o">//</span> <span class="n">Pointer</span> <span class="n">q</span> <span class="n">points</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">array</span> <span class="n">a</span>
+
+    <span class="o">//</span> <span class="n">Printing</span> <span class="n">the</span> <span class="n">difference</span> <span class="n">between</span> <span class="n">pointers</span> <span class="ow">in</span> <span class="n">terms</span> <span class="n">of</span> <span class="n">elements</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Difference in elements: %td</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">q</span> <span class="o">-</span> <span class="n">p</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Printing</span> <span class="n">the</span> <span class="n">difference</span> <span class="ow">in</span> <span class="n">memory</span> <span class="n">address</span> <span class="ow">in</span> <span class="nb">bytes</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Difference in bytes: </span><span class="si">%ld</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">char</span><span class="o">*</span><span class="p">)</span><span class="n">q</span> <span class="o">-</span> <span class="p">(</span><span class="n">char</span><span class="o">*</span><span class="p">)</span><span class="n">p</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>pointer-arith.c<span class="w"> </span>-o<span class="w"> </span>pointer-arith<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./pointer-arith
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="arrays-and-pointers">
+<h1>Arrays and Pointers<a class="headerlink" href="#arrays-and-pointers" title="Link to this heading">#</a></h1>
+<p>An array name is an address!</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">equivalent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">equivalent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Pointer arithmetic ~ array indexing</p>
+<p>Both equivalent:</p>
+<table> <tr> <td>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">];</span><span class="w"> </span><span class="o">++</span><span class="n">p</span><span class="w"> </span><span class="p">)</span><span class="w">     </span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span><span class="w">     </span>
+</pre></div>
+</div>
+</td> <td>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w">  </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="w"> </span><span class="p">)</span><span class="w">     </span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w">   </span>
+</pre></div>
+</div>
+</td> </tr> </table><section id="illegal-expressions">
+<h2>Illegal expressions !!!<a class="headerlink" href="#illegal-expressions" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span>
+<span class="o">++</span><span class="n">a</span>
+<span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span>
+<span class="o">&amp;</span><span class="n">a</span>
+</pre></div>
+</div>
+<p>The main difference between the two: a pointer can be modified, an array cannot, it is a CONSTANT pointer!</p>
+</section>
+<section id="passing-an-array-to-a-function-1">
+<h2>Passing an array to a function 1<a class="headerlink" href="#passing-an-array-to-a-function-1" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="kt">int</span><span class="w">          </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">	</span><span class="kt">double</span><span class="w">   </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+
+<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="w"> </span><span class="p">)</span>
+<span class="w">	      </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Base address is passed call by value</p></li>
+<li><p>Array is not copied!</p></li>
+<li><p>double *a is an equivalent form</p></li>
+</ul>
+<p>What will <code class="docutils literal notranslate"><span class="pre">sum(a+3,</span> <span class="pre">3)</span></code> compute?</p>
+</section>
+<section id="passing-an-array-to-a-function-2">
+<h2>Passing an array to a function 2<a class="headerlink" href="#passing-an-array-to-a-function-2" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>
+<span class="cm">/* Merge a[] of size m and b[] of size n  into c[]. */</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="w">            </span><span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span><span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">)</span>
+<span class="w">        </span><span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">        </span><span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="o">/*</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">merge</span> <span class="n">two</span> <span class="nb">sorted</span> <span class="n">arrays</span> <span class="n">into</span> <span class="n">a</span> <span class="n">third</span> <span class="n">array</span> <span class="o">*/</span>
+<span class="n">void</span> <span class="n">merge</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">[],</span> <span class="nb">int</span> <span class="n">b</span><span class="p">[],</span> <span class="nb">int</span> <span class="n">c</span><span class="p">[],</span> <span class="nb">int</span> <span class="n">m</span><span class="p">,</span> <span class="nb">int</span> <span class="n">n</span><span class="p">);</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">};</span>           <span class="o">/*</span> <span class="n">First</span> <span class="nb">sorted</span> <span class="n">array</span> <span class="o">*/</span>
+    <span class="nb">int</span> <span class="n">b</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>           <span class="o">/*</span> <span class="n">Second</span> <span class="nb">sorted</span> <span class="n">array</span> <span class="o">*/</span>
+    <span class="nb">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="o">/*</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">array</span> <span class="n">a</span> <span class="o">*/</span>
+    <span class="nb">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="o">/*</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">array</span> <span class="n">b</span> <span class="o">*/</span>
+
+    <span class="nb">int</span> <span class="n">c</span><span class="p">[</span><span class="n">m</span> <span class="o">+</span> <span class="n">n</span><span class="p">];</span> <span class="o">/*</span> <span class="n">Array</span> <span class="n">to</span> <span class="n">hold</span> <span class="n">the</span> <span class="n">merged</span> <span class="n">result</span> <span class="o">*/</span>
+
+    <span class="o">/*</span> <span class="n">Call</span> <span class="n">the</span> <span class="n">merge</span> <span class="n">function</span> <span class="o">*/</span>
+    <span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+
+    <span class="o">/*</span> <span class="n">Display</span> <span class="n">the</span> <span class="n">merged</span> <span class="n">array</span> <span class="o">*/</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Merged array: &quot;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">+</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">/*</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">merge</span> <span class="n">two</span> <span class="nb">sorted</span> <span class="n">arrays</span> <span class="o">*/</span>
+<span class="n">void</span> <span class="n">merge</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">[],</span> <span class="nb">int</span> <span class="n">b</span><span class="p">[],</span> <span class="nb">int</span> <span class="n">c</span><span class="p">[],</span> <span class="nb">int</span> <span class="n">m</span><span class="p">,</span> <span class="nb">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span>
+        <span class="k">else</span>
+            <span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">)</span>
+        <span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="count-the-number-of-words-in-a-string">
+<h2>Count the number of words in a string<a class="headerlink" href="#count-the-number-of-words-in-a-string" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctype.h&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">word_cnt</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="kt">int</span><span class="w">    </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">	</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span>
+<span class="w">	</span><span class="p">{</span>
+<span class="w">	      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">isspace</span><span class="p">(</span><span class="o">*</span><span class="n">s</span><span class="p">))</span><span class="w"> </span><span class="cm">/*skip white spaces */</span>
+<span class="w">		      </span><span class="o">++</span><span class="n">s</span><span class="p">;</span>
+<span class="w">	      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="cm">/*found a word*/</span>
+<span class="w">	      </span><span class="p">{</span>
+<span class="w">		      </span><span class="o">++</span><span class="n">cnt</span><span class="p">;</span>
+<span class="w">		      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">isspace</span><span class="p">(</span><span class="o">*</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span><span class="w"> </span><span class="cm">/*skip the word*/</span>
+<span class="w">			</span><span class="o">++</span><span class="n">s</span><span class="p">;</span>
+<span class="w">	      </span><span class="p">}</span>
+<span class="w">	</span><span class="p">}</span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">cnt</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="const">
+<h1>Const<a class="headerlink" href="#const" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Type qualifier; comes after storage class</p></li>
+<li><p>E.g.: static const int k=3;</p></li>
+<li><p>const int *p   =&gt;  p points to a const variable</p></li>
+<li><p>int * const p  =&gt;  p is const and cannot be changed</p></li>
+<li><p>const int * const p   =&gt;   both.</p></li>
+</ul>
+<section id="static-const-int">
+<h2>static const int<a class="headerlink" href="#static-const-int" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// At file scope:</span>
+<span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">  </span><span class="c1">// Only this file can see k, and k cannot be modified</span>
+
+<span class="c1">// Inside a function:</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">  </span><span class="c1">// k retains value between calls, cannot be modified</span>
+<span class="w">    </span><span class="c1">// k = 4;  // Error: cannot modify const variable</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="const-int-p">
+<h2>const int *p<a class="headerlink" href="#const-int-p" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>p points to a constant integer</p></li>
+<li><p>The value of the integer cannot be changed through p.</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+<span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// Error: Cannot modify a `const` variable through `p`.</span>
+</pre></div>
+</div>
+</section>
+<section id="int-const-p">
+<h2>int * const p<a class="headerlink" href="#int-const-p" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>p itself is constant; the pointer cannot be changed to point to another variable.</p></li>
+<li><p>The value at the address p points to can still be modified.</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">;</span><span class="w">  </span><span class="c1">// Error: Cannot change a constant pointer.</span>
+<span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span><span class="w"> </span><span class="c1">// Allowed: Modifies the value at the address `p` points to.</span>
+</pre></div>
+</div>
+</section>
+<section id="const-int-const-p">
+<h2>const int * const p<a class="headerlink" href="#const-int-const-p" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Both the pointer and the value it points to are constant.</p></li>
+<li><p>You cannot change the pointer or the value it points to.</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+<span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// Error: Cannot modify a `const` variable through `p`.</span>
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">;</span><span class="w">  </span><span class="c1">// Error: Cannot change a constant pointer.</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "TauInnov/NewCourse",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Arrays (chapter 6)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-dimensional-arrays">One Dimensional Arrays</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers">Pointers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-they-important">Why are they important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-initializations">Declarations and Initializations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#call-by-reference">Call by reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic">Pointer Arithmetic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic-and-element-size">Pointer Arithmetic and Element Size</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-and-pointers">Arrays and Pointers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#illegal-expressions">Illegal expressions !!!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-an-array-to-a-function-1">Passing an array to a function 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-an-array-to-a-function-2">Passing an array to a function 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#count-the-number-of-words-in-a-string">Count the number of words in a string</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#const">Const</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-const-int">static const int</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#const-int-p">const int *p</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#int-const-p">int * const p</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#const-int-const-p">const int * const p</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

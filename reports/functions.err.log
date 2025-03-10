@@ -1,0 +1,70 @@
+Traceback (most recent call last):
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/raminasser/anaconda3/envs/software_project/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# @title
+%%writefile power-table.c
+#include <stdio.h>
+#define N 7
+
+/* Function declaration (Prototypes) */
+long power(int base, int exp);
+void prn_heading(void);
+void prn_tbl_of_powers(int n);
+
+int main(void)
+{
+    /* Using the functions */
+    prn_heading();
+    prn_tbl_of_powers(N);
+    return 0;
+}
+
+/* Function to calculate power */
+long power(int base, int exp)
+{
+    long result = 1;
+    for (int i = 0; i < exp; i++)
+    {
+        result *= base;
+    }
+    return result;
+}
+
+/* Function to print heading */
+void prn_heading(void)
+{
+    printf("Table of Powers\n");
+    printf("================\n");
+}
+
+/* Function to print table of powers */
+void prn_tbl_of_powers(int n)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        printf("%d^%d = %ld\n", i, i, power(i, i));
+    }
+}
+------------------
+
+
+[0;36m  Cell [0;32mIn[1], line 6[0;36m[0m
+[0;31m    *(Function, declaration, (Prototypes), */)[0m
+[0m                                            ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+

@@ -1,0 +1,1018 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The Preprocessor (Chapter 8) &#8212; Web Course</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'preprocessor';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Development_Environment.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Web Course</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Development_Environment.html">
+                    Software Project
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Content</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduction_to_C.html">The C programming language</a></li>
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/TauInnov/book/master/v2/gh/TauInnov/NewCourse/main?urlpath=tree/docs/preprocessor.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/TauInnov/NewCourse/blob/main/docs/preprocessor.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/TauInnov/NewCourse" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/TauInnov/NewCourse/issues/new?title=Issue%20on%20page%20%2Fpreprocessor.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/preprocessor.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Preprocessor (Chapter 8)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The Preprocessor (Chapter 8)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-commands">Basic Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define">#define</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#macros">Macros</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-macros">Nested Macros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-about-macros">More about Macros</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-compilation">Conditional Compilation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-compilation-example-1">Conditional Compilation (example 1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-compilation-example-2">Conditional Compilation (example 2)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-compilation-example-3">Conditional Compilation (example 3)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conditional Compilation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#predefined-macros">Predefined Macros</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#header-files"><strong>Header Files</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-header-files"><strong>What are Header Files?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points"><strong>Key Points:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-header-file-math-functions-h"><strong>Example: Header File (<code class="docutils literal notranslate"><span class="pre">math_functions.h</span></code>)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-compilation-in-c"><strong>Conditional Compilation in C</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-conditional-compilation"><strong>What is Conditional Compilation?</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Key Points:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-conditional-compilation-with-debug-flag"><strong>Example: Conditional Compilation with Debug Flag</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#header-file-math-functions-h"><strong>1. Header File (<code class="docutils literal notranslate"><span class="pre">math_functions.h</span></code>)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-file-math-functions-c"><strong>2. Implementation File (<code class="docutils literal notranslate"><span class="pre">math_functions.c</span></code>)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#main-file-main-c"><strong>3. Main File (<code class="docutils literal notranslate"><span class="pre">main.c</span></code>)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation"><strong>Explanation:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compilation-steps"><strong>Compilation Steps</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assert">Assert</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a href="https://colab.research.google.com/github/raminass/Software-Project/blob/main/preprocessor.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="the-preprocessor-chapter-8">
+<h1>The Preprocessor (Chapter 8)<a class="headerlink" href="#the-preprocessor-chapter-8" title="Link to this heading">#</a></h1>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>               +-----------+               +---------+               +--------+
+   --------&gt;   | hello.c   |   --------&gt;   | hello.o |   --------&gt;   | hello  |
+     edit      +-----------+    compile    +---------+    Linking    +--------+
+
+                Keywords       Preprocessor         
+                Identifiers    Lexical analysis     
+                Constants      Syntax analysis      
+                Operators      Semantic analysis    
+                Punctuation    
+</pre></div>
+</div>
+<section id="basic-commands">
+<h2>Basic Commands<a class="headerlink" href="#basic-commands" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="cp">#include “myfile.h”</span>
+
+<span class="o">---------------------------------</span>
+
+<span class="cp">#define   identifier    string</span>
+
+<span class="cp">#undef   identifier</span>
+</pre></div>
+</div>
+</section>
+<section id="define">
+<h2>#define<a class="headerlink" href="#define" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define PI    3.14159</span>
+<span class="cp">#define C2    99792.458 </span><span class="cm">/*the speed of light*/</span>
+
+<span class="cp">#define EOF   (-1)</span>
+<span class="cp">#define MAXINT 2147483647</span>
+
+<span class="cp">#define EQ ==</span>
+
+<span class="cp">#define do  </span><span class="cm">/* blank */</span>
+
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">EQ</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">......</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="macros">
+<h1>Macros<a class="headerlink" href="#macros" title="Link to this heading">#</a></h1>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>
+<span class="cp">#define SQ(x) ((x) * (x))</span>
+
+<span class="n">SQ</span><span class="p">(</span><span class="mi">7</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w">    </span><span class="cm">/*expands to */</span><span class="w">    </span><span class="p">((</span><span class="mi">7</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">7</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="p">))</span>
+
+<span class="n">SQ</span><span class="p">(</span><span class="n">SQ</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">))</span><span class="w">    </span><span class="cm">/*expands to */</span><span class="w">    </span><span class="p">((((</span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(((</span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">))))</span>
+
+
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define SQ(x) x * x</span>
+
+<span class="n">SQ</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w">    </span><span class="cm">/*expands to */</span><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define SQ(x) (x) * (x)</span>
+
+<span class="mi">4</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">SQ</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">    </span><span class="cm">/*expands to */</span><span class="w">    </span><span class="mi">4</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define SQ (x) ((x) * (x))</span>
+
+<span class="n">SQ</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="w">    </span><span class="cm">/*expands to */</span><span class="w">    </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define   SQ(x)   ((x) * (x)); </span><span class="cm">/*Be careful!!!*/</span>
+
+<span class="cm">/*because*/</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">   </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SQ</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<span class="k">else</span>
+<span class="w">   </span><span class="o">++</span><span class="n">x</span><span class="p">;</span>
+
+</pre></div>
+</div>
+<section id="nested-macros">
+<h2>Nested Macros<a class="headerlink" href="#nested-macros" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define min(x, y) (((x) &lt; (y)) ? (x) : (y))</span>
+
+<span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w">    </span><span class="cm">/*expands to */</span><span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(((</span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+
+<span class="cp">#define   min4(a, b, c, d)   min(min(a,b), min(c,d))</span>
+</pre></div>
+</div>
+<p>You can stop the compiler after the preprocessing step and view the code:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>-E<span class="w"> </span>tmp.c
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">%%writefile</span> tmp.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#define SQUARE(x) ((x) * (x))</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">SQUARE</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+    <span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
+<span class="o">!</span>gcc<span class="w"> </span>tmp.c<span class="w"> </span>-o<span class="w"> </span>tmp
+<span class="o">!</span>./tmp
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="more-about-macros">
+<h2>More about Macros<a class="headerlink" href="#more-about-macros" title="Link to this heading">#</a></h2>
+<p>Macros are not functions Even when written with all the parentheses</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MAX(a, b) (((a) &gt; (b)) ? (a) : (b))</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">biggest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="n">biggest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="w">    </span><span class="n">biggest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAX</span><span class="p">(</span><span class="n">biggest</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>This code would have worked fine if MAX was a function !</p>
+<p>Expands to:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">biggest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(((</span><span class="n">biggest</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]))</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="n">biggest</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]));</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">i</span></code> is incremented <strong>twice</strong> when the condition <code class="docutils literal notranslate"><span class="pre">(biggest</span> <span class="pre">&gt;</span> <span class="pre">x[i++])</span></code> is <strong>false</strong>, and only <strong>once</strong> when it is <strong>true</strong>.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="conditional-compilation">
+<h1>Conditional Compilation<a class="headerlink" href="#conditional-compilation" title="Link to this heading">#</a></h1>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#if constant_integral_expression</span>
+<span class="cp">#ifdef  identifier</span>
+<span class="cp">#ifndef identifier</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<section id="conditional-compilation-example-1">
+<h2>Conditional Compilation (example 1)<a class="headerlink" href="#conditional-compilation-example-1" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#if defined ( HP9000 ) || defined ( SUN4 ) &amp;&amp; !defined( VAX )</span>
+
+<span class="cm">/*Machine-dependent code*/</span>
+
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</section>
+<section id="conditional-compilation-example-2">
+<h2>Conditional Compilation (example 2)<a class="headerlink" href="#conditional-compilation-example-2" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define DEBUG</span>
+
+<span class="cp">#ifdef DEBUG</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="w"> </span><span class="err">“</span><span class="n">debug</span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">%</span><span class="n">d</span><span class="err">\</span><span class="n">n</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">);</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</section>
+<section id="conditional-compilation-example-3">
+<h2>Conditional Compilation (example 3)<a class="headerlink" href="#conditional-compilation-example-3" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef __HEADER_H</span>
+<span class="cp">#define __HEADER_H</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>Conditional Compilation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">statement</span>
+<span class="cp">#if 0</span>
+
+<span class="c">more statements</span>
+<span class="cp">#endif</span>
+
+<span class="n">and</span><span class="w"> </span><span class="n">still</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">statements</span>
+
+<span class="o">------------------------------------------</span>
+
+<span class="cp">#elif constant_interal_expression</span>
+
+<span class="cp">#else</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="predefined-macros">
+<h1>Predefined Macros<a class="headerlink" href="#predefined-macros" title="Link to this heading">#</a></h1>
+<p>Four predefined macros (can’t be undefined) :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">__DATE__</span><span class="w">	</span><span class="n">A</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">date</span>
+<span class="n">__FILE__</span><span class="w">	</span><span class="n">A</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">name</span>
+<span class="n">__LINE__</span><span class="w">	</span><span class="n">An</span><span class="w"> </span><span class="n">integer</span><span class="w"> </span><span class="n">representing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span>
+<span class="n">__TIME__</span><span class="w">	</span><span class="n">A</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">time</span>
+
+
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="header-files">
+<h1><strong>Header Files</strong><a class="headerlink" href="#header-files" title="Link to this heading">#</a></h1>
+<section id="what-are-header-files">
+<h2><strong>What are Header Files?</strong><a class="headerlink" href="#what-are-header-files" title="Link to this heading">#</a></h2>
+<p>Header files (<code class="docutils literal notranslate"><span class="pre">.h</span></code> files) contain <strong>declarations</strong> of functions, macros, constants, and structures. They allow for code reuse and modularity by separating the interface (declarations) from the implementation (definitions).</p>
+</section>
+<section id="key-points">
+<h2><strong>Key Points:</strong><a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Function Prototypes</strong>: Declare functions that will be defined in other source files.</p></li>
+<li><p><strong>Macros and Constants</strong>: Define reusable code snippets or constants.</p></li>
+<li><p><strong>Include Guard</strong>: Prevents multiple inclusions of the same header file.</p></li>
+</ul>
+</section>
+<section id="example-header-file-math-functions-h">
+<h2><strong>Example: Header File (<code class="docutils literal notranslate"><span class="pre">math_functions.h</span></code>)</strong><a class="headerlink" href="#example-header-file-math-functions-h" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef MATH_FUNCTIONS_H  </span><span class="c1">// Include guard to prevent multiple inclusions</span>
+<span class="cp">#define MATH_FUNCTIONS_H</span>
+
+<span class="c1">// Function prototypes</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">subtract</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+
+<span class="cp">#endif </span><span class="c1">// MATH_FUNCTIONS_H</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="conditional-compilation-in-c">
+<h2><strong>Conditional Compilation in C</strong><a class="headerlink" href="#conditional-compilation-in-c" title="Link to this heading">#</a></h2>
+<section id="what-is-conditional-compilation">
+<h3><strong>What is Conditional Compilation?</strong><a class="headerlink" href="#what-is-conditional-compilation" title="Link to this heading">#</a></h3>
+<p>Conditional compilation allows for compiling code conditionally based on certain preprocessor directives like <code class="docutils literal notranslate"><span class="pre">#define</span></code>, <code class="docutils literal notranslate"><span class="pre">#ifdef</span></code>, <code class="docutils literal notranslate"><span class="pre">#ifndef</span></code>, and <code class="docutils literal notranslate"><span class="pre">#endif</span></code>. It is useful for including or excluding code depending on different conditions (e.g., platform-specific code, debugging).</p>
+</section>
+<section id="id2">
+<h3><strong>Key Points:</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">#define</span></code></strong>: Defines a constant or flag for conditional checks.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">#ifdef</span></code> / <code class="docutils literal notranslate"><span class="pre">#ifndef</span></code></strong>: Checks if a macro is defined or not.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">#endif</span></code></strong>: Ends a conditional block.</p></li>
+</ul>
+</section>
+<section id="example-conditional-compilation-with-debug-flag">
+<h3><strong>Example: Conditional Compilation with Debug Flag</strong><a class="headerlink" href="#example-conditional-compilation-with-debug-flag" title="Link to this heading">#</a></h3>
+<p>We will modify the program to conditionally include a debug message.</p>
+<section id="header-file-math-functions-h">
+<h4><strong>1. Header File (<code class="docutils literal notranslate"><span class="pre">math_functions.h</span></code>)</strong><a class="headerlink" href="#header-file-math-functions-h" title="Link to this heading">#</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef MATH_FUNCTIONS_H</span>
+<span class="cp">#define MATH_FUNCTIONS_H</span>
+
+<span class="c1">// Function prototypes</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">subtract</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+
+<span class="cp">#endif </span><span class="c1">// MATH_FUNCTIONS_H</span>
+
+<span class="c1">// Conditionally include debugging</span>
+<span class="cp">#define DEBUG   </span><span class="c1">// Comment this line to disable debug messages</span>
+</pre></div>
+</div>
+</section>
+<section id="implementation-file-math-functions-c">
+<h4><strong>2. Implementation File (<code class="docutils literal notranslate"><span class="pre">math_functions.c</span></code>)</strong><a class="headerlink" href="#implementation-file-math-functions-c" title="Link to this heading">#</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;math_functions.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="c1">// Function definitions</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">subtract</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="main-file-main-c">
+<h4><strong>3. Main File (<code class="docutils literal notranslate"><span class="pre">main.c</span></code>)</strong><a class="headerlink" href="#main-file-main-c" title="Link to this heading">#</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;math_functions.h&quot;</span>
+
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">difference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">subtract</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Conditional Debug Output</span>
+<span class="w">    </span><span class="cp">#ifdef DEBUG</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Debug: Sum is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span>
+<span class="w">    </span><span class="cp">#endif</span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sum: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Difference: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">difference</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="explanation">
+<h3><strong>Explanation:</strong><a class="headerlink" href="#explanation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">DEBUG</span></code></strong>: This flag enables the debug message.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">#ifdef</span> <span class="pre">DEBUG</span></code></strong>: If <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> is defined, the debug message will be included in the compilation.</p></li>
+<li><p><strong>No <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> flag</strong>: If you comment out <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">DEBUG</span></code>, the debug message will be excluded from the compilation.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="compilation-steps">
+<h2><strong>Compilation Steps</strong><a class="headerlink" href="#compilation-steps" title="Link to this heading">#</a></h2>
+<p>To compile and link the program:</p>
+<ol class="arabic">
+<li><p>Compile and link everything in one command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>main.c<span class="w"> </span>math_functions.c<span class="w"> </span>-o<span class="w"> </span>program
+</pre></div>
+</div>
+</li>
+<li><p>Run the program:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./program
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="assert">
+<h2>Assert<a class="headerlink" href="#assert" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+
+<span class="cp">#if defined(NDEBUG)</span>
+<span class="cp">#define assert(ignore) ((void)0) </span><span class="cm">/* ignore it */</span>
+<span class="cp">#else</span>
+<span class="cp">#define assert(expr)                            \</span>
+<span class="cp">    do                                          \</span>
+<span class="cp">    {                                           \</span>
+<span class="cp">        if (!(expr))                            \</span>
+<span class="cp">        {                                       \</span>
+<span class="cp">            printf(&quot;\n%s %s\n%s %s\n%s %d\n\n&quot;, \</span>
+<span class="cp">                   &quot;Assertion failed:&quot;, #expr,  \</span>
+<span class="cp">                   &quot;In file:&quot;, __FILE__,        \</span>
+<span class="cp">                   &quot;At line:&quot;, __LINE__);       \</span>
+<span class="cp">            abort();                            \</span>
+<span class="cp">        }                                       \</span>
+<span class="cp">    } while (0)</span>
+<span class="cp">#endif</span>
+
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "TauInnov/NewCourse",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The Preprocessor (Chapter 8)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-commands">Basic Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define">#define</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#macros">Macros</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-macros">Nested Macros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-about-macros">More about Macros</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-compilation">Conditional Compilation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-compilation-example-1">Conditional Compilation (example 1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-compilation-example-2">Conditional Compilation (example 2)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-compilation-example-3">Conditional Compilation (example 3)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conditional Compilation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#predefined-macros">Predefined Macros</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#header-files"><strong>Header Files</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-header-files"><strong>What are Header Files?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points"><strong>Key Points:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-header-file-math-functions-h"><strong>Example: Header File (<code class="docutils literal notranslate"><span class="pre">math_functions.h</span></code>)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-compilation-in-c"><strong>Conditional Compilation in C</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-conditional-compilation"><strong>What is Conditional Compilation?</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Key Points:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-conditional-compilation-with-debug-flag"><strong>Example: Conditional Compilation with Debug Flag</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#header-file-math-functions-h"><strong>1. Header File (<code class="docutils literal notranslate"><span class="pre">math_functions.h</span></code>)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-file-math-functions-c"><strong>2. Implementation File (<code class="docutils literal notranslate"><span class="pre">math_functions.c</span></code>)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#main-file-main-c"><strong>3. Main File (<code class="docutils literal notranslate"><span class="pre">main.c</span></code>)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation"><strong>Explanation:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compilation-steps"><strong>Compilation Steps</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assert">Assert</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
