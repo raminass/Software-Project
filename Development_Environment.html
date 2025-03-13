@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Development Environment &#8212; Software Project 0368-2161</title>
+    <title>Development Environment &#8212; Software Project&lt;br&gt;0368-2161</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -149,7 +149,7 @@
   
   
   
-    <p class="title logo__title">Software Project 0368-2161</p>
+    <p class="title logo__title">Software Project<br>0368-2161</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -549,7 +549,13 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-steps">Installation Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-steps">Installation Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macos-installation">macOS Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-installation">Windows Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-installation">Verify installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-installation">Test installation</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-course-image">Building Course Image</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-docker-commands">Basic Docker Commands 🖥️</a></li>
@@ -1110,52 +1116,43 @@ Benefits:
 </section>
 <section id="installation-steps">
 <h2>Installation Steps<a class="headerlink" href="#installation-steps" title="Link to this heading">#</a></h2>
-<ol class="arabic">
-<li><p><strong>Visit the Docker website</strong></p>
-<ul class="simple">
-<li><p>Go to the <a class="reference external" href="https://www.docker.com/products/docker-desktop">official Docker website</a></p></li>
-<li><p>Find the appropriate Docker Desktop version for your operating system</p></li>
-</ul>
-</li>
-<li><p><strong>Download Docker Desktop</strong></p>
-<ul class="simple">
-<li><p>Click on the download button for your OS (Windows, macOS, or Linux)</p></li>
-</ul>
-</li>
-<li><p><strong>Run the installer</strong></p>
-<ul class="simple">
-<li><p>Once downloaded, run the Docker Desktop installer</p></li>
-<li><p>Follow the on-screen instructions to complete the installation</p></li>
-</ul>
-</li>
-<li><p><strong>Start Docker Desktop</strong></p>
-<ul class="simple">
-<li><p>After installation, start Docker Desktop from your applications menu</p></li>
-<li><p>You may need to restart your computer to complete the setup</p></li>
-</ul>
-</li>
-<li><p><strong>Verify the installation</strong></p>
-<ul>
-<li><p>Open a terminal or command prompt</p></li>
-<li><p>Run the following command to check the Docker version:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="o">--</span><span class="n">version</span>
+<section id="macos-installation">
+<h3>macOS Installation<a class="headerlink" href="#macos-installation" title="Link to this heading">#</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Docker Desktop for Mac using Homebrew</span>
+brew<span class="w"> </span>update
+brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>docker
+
+<span class="c1"># Start Docker Desktop from Applications folder</span>
+<span class="c1"># Or run the command:</span>
+open<span class="w"> </span>-a<span class="w"> </span>Docker
 </pre></div>
 </div>
-</li>
-<li><p>You should see output similar to: <code class="docutils literal notranslate"><span class="pre">Docker</span> <span class="pre">version</span> <span class="pre">20.10.14,</span> <span class="pre">build</span> <span class="pre">a224086</span></code></p></li>
-</ul>
-</li>
-<li><p><strong>Test Docker</strong></p>
-<ul>
-<li><p>Run the following command to test if Docker can pull and run images:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="n">hello</span><span class="o">-</span><span class="n">world</span>
+</section>
+<section id="windows-installation">
+<h3>Windows Installation<a class="headerlink" href="#windows-installation" title="Link to this heading">#</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download Docker Desktop for Windows from:</span>
+<span class="c1"># https://www.docker.com/products/docker-desktop/</span>
+
+<span class="c1"># Follow the installation wizard</span>
+<span class="c1"># Enable WSL 2 if prompted</span>
 </pre></div>
 </div>
-</li>
-<li><p>If successful, you’ll see a message indicating that your Docker installation is working correctly</p></li>
-</ul>
-</li>
-</ol>
+</section>
+<section id="verify-installation">
+<h3>Verify installation<a class="headerlink" href="#verify-installation" title="Link to this heading">#</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify installation</span>
+docker<span class="w"> </span>--version
+docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</pre></div>
+</div>
+</section>
+<section id="test-installation">
+<h3>Test installation<a class="headerlink" href="#test-installation" title="Link to this heading">#</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</pre></div>
+</div>
+<p>If successful, you’ll see a message indicating that your Docker installation is working correctly</p>
+</section>
 </section>
 <section id="building-course-image">
 <h2>Building Course Image<a class="headerlink" href="#building-course-image" title="Link to this heading">#</a></h2>
@@ -1414,7 +1411,13 @@ docker run -d -p 2222:22 -v &lt;course_path_on_host&gt;:/home/developer/sp c-pyt
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-steps">Installation Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-steps">Installation Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macos-installation">macOS Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-installation">Windows Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-installation">Verify installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-installation">Test installation</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-course-image">Building Course Image</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-docker-commands">Basic Docker Commands 🖥️</a></li>
@@ -1465,6 +1468,10 @@ By Rami Nasser, School of Computer Science and AI, Tel Aviv University, Tel Aviv
   
   <div class="footer-item">
     
+<div class="extra_footer">
+  <p>Contact: <a href="mailto:raminass@gmail.com">raminass@gmail.com</a></p>
+
+</div>
   </div>
   
 </div>

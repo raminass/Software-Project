@@ -3,7 +3,6 @@
 
 ## Overview
 
-**Instructors:** Rami Nasser (raminasser@tauex.tau.ac.il), Yael Kupershmidt (kupershmidt@mail.tau.ac.il)
 
 🔗 **Course website:** Moodle
 
