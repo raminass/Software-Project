@@ -205,13 +205,11 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="strings%2BdynamicMemory.html">Strings + Dynamic Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dynamicMemory.html">Dynamic memory allocation</a></li>
 
 
-
-
-<li class="toctree-l1"><a class="reference internal" href="structures_linkedLists.html">Structures</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="structures.html">Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linkedLists.html">Linked Lists</a></li>
 
 
 
@@ -255,6 +253,7 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="c_exam.html">C Exam Questions</a></li>
 </ul>
 
     </div>
@@ -544,8 +543,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p><a href="https://colab.research.google.com/github/raminass/Software-Project/blob/pandas/pandas.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="pandas">
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas">
 <h1>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h1>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="earlier">
@@ -842,7 +840,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/vp/68ys1b7x6gs927m8j64n1z8m0000gn/T/ipykernel_9225/424575284.py:1: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/vp/68ys1b7x6gs927m8j64n1z8m0000gn/T/ipykernel_10602/424575284.py:1: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
 A typical example is when you are setting values in a column of a DataFrame, like:
 
@@ -1220,9 +1218,9 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2025-03-13 12:41:31--  https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.109.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2025-03-13 13:41:29--  https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>connected.
@@ -1233,13 +1231,13 @@ Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
 Length: 9729 (9.5K) [text/plain]
-Saving to: ‘tips.csv.1’
+Saving to: ‘tips.csv.2’
 
 
-tips.csv.1            0%[                    ]       0  --.-KB/s               
-tips.csv.1          100%[===================&gt;]   9.50K  --.-KB/s    in 0s      
+tips.csv.2            0%[                    ]       0  --.-KB/s               
+tips.csv.2          100%[===================&gt;]   9.50K  --.-KB/s    in 0s      
 
-2025-03-13 12:41:31 (25.1 MB/s) - ‘tips.csv.1’ saved [9729/9729]
+2025-03-13 13:41:29 (25.2 MB/s) - ‘tips.csv.2’ saved [9729/9729]
 </pre></div>
 </div>
 </div>
@@ -1280,52 +1278,52 @@ tips.csv.1          100%[===================&gt;]   9.50K  --.-KB/s    in 0s
   </thead>
   <tbody>
     <tr>
-      <th>156</th>
-      <td>48.17</td>
-      <td>5.00</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>18.35</td>
-      <td>2.50</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>38</th>
-      <td>18.69</td>
-      <td>2.31</td>
-      <td>Male</td>
+      <th>238</th>
+      <td>35.83</td>
+      <td>4.67</td>
+      <td>Female</td>
       <td>No</td>
       <td>Sat</td>
       <td>Dinner</td>
       <td>3</td>
     </tr>
     <tr>
-      <th>63</th>
-      <td>18.29</td>
-      <td>3.76</td>
-      <td>Male</td>
-      <td>Yes</td>
-      <td>Sat</td>
+      <th>155</th>
+      <td>29.85</td>
+      <td>5.14</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
       <td>Dinner</td>
-      <td>4</td>
+      <td>5</td>
     </tr>
     <tr>
-      <th>103</th>
-      <td>22.42</td>
-      <td>3.48</td>
-      <td>Female</td>
-      <td>Yes</td>
+      <th>30</th>
+      <td>9.55</td>
+      <td>1.45</td>
+      <td>Male</td>
+      <td>No</td>
       <td>Sat</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>22.76</td>
+      <td>3.00</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Thur</td>
+      <td>Lunch</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>27.28</td>
+      <td>4.00</td>
+      <td>Male</td>
+      <td>Yes</td>
+      <td>Fri</td>
       <td>Dinner</td>
       <td>2</td>
     </tr>

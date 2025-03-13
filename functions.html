@@ -205,13 +205,11 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="strings%2BdynamicMemory.html">Strings + Dynamic Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dynamicMemory.html">Dynamic memory allocation</a></li>
 
 
-
-
-<li class="toctree-l1"><a class="reference internal" href="structures_linkedLists.html">Structures</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="structures.html">Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linkedLists.html">Linked Lists</a></li>
 
 
 
@@ -255,6 +253,7 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="c_exam.html">C Exam Questions</a></li>
 </ul>
 
     </div>
@@ -564,8 +563,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p><a href="https://colab.research.google.com/github/raminass/Software-Project/blob/main/functions.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="functions">
+  <section class="tex2jax_ignore mathjax_ignore" id="functions">
 <h1>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h1>
 <p>(chapter 5)</p>
 <section id="function-definition">
@@ -713,19 +711,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Table of Powers
-================
-1^1 = 1
-2^2 = 4
-3^3 = 27
-4^4 = 256
-5^5 = 3125
-6^6 = 46656
-7^7 = 823543
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="call-by-value">
@@ -780,24 +765,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing call-by-value.c
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
 <span class="o">!</span>gcc<span class="w"> </span>call-by-value.c<span class="w"> </span>-o<span class="w"> </span>call-by-value
 <span class="o">!</span>./call-by-value
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 3
- 3
- 6
 </pre></div>
 </div>
 </div>
@@ -1085,26 +1058,12 @@ Activation records hold required execution information:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing scope.c
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
 <span class="o">!</span>gcc<span class="w"> </span>scope.c<span class="w"> </span>-o<span class="w"> </span>scope
 <span class="o">!</span>./scope
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1   2   3
-  1   4   5.0
-  4   4   4
-  4   4   5.0
-  4   2   3
 </pre></div>
 </div>
 </div>
@@ -1172,11 +1131,6 @@ Activation records hold required execution information:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing file1.c
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1194,23 +1148,12 @@ Activation records hold required execution information:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing file2.c
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title</span>
 <span class="o">!</span>gcc<span class="w"> </span>file1.c<span class="w"> </span>file2.c<span class="w"> </span>-o<span class="w"> </span>file1
 <span class="o">!</span>./file1
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 12
-  4  2  3
 </pre></div>
 </div>
 </div>

@@ -1,0 +1,821 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Structures &#8212; Software Project&lt;br&gt;0368-2161</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'structures';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Linked Lists" href="linkedLists.html" />
+    <link rel="prev" title="Dynamic memory allocation" href="dynamicMemory.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Software Project<br>0368-2161</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Development_Environment.html">Development Environment</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Python_review.html">Python Review</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Introduction_to_C.html">Introduction to C</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arrays_pointers.html">Arrays + Pointers</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="C_tutorial.html">C Tutorial</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="dynamicMemory.html">Dynamic memory allocation</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linkedLists.html">Linked Lists</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessor.html">The Preprocessor</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Files.html">Files</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Bitwise_Operators.html">Bitwise Operators</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="C_Python_API.html">C Python API</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="numpy.html">Numpy</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">Pandas</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="scikit_learn.html">Machine Learning</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="large_scale.html">Large Scale + C Example Test</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="c_exam.html">C Exam Questions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/TauInnov/book/master/v2/gh/raminass/Software-Project/main?urlpath=tree/structures.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/raminass/Software-Project/blob/main/structures.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/raminass/Software-Project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/raminass/Software-Project/issues/new?title=Issue%20on%20page%20%2Fstructures.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/structures.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Structures</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structs">Structs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typedef">typedef</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-structs-typedef">Combining structs &amp; typedef</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-assignments">Declarations and Assignments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expression-table"><strong>Expression Table</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-store-strings-as-pointers-in-structs">Why Store Strings as Pointers in Structs?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-structs">Passing Structs</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="structures">
+<h1>Structures<a class="headerlink" href="#structures" title="Link to this heading">#</a></h1>
+<p>(ch 9)</p>
+<section id="structs">
+<h2>Structs<a class="headerlink" href="#structs" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*struct definition*/</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">card</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">pips</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">suit</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">card</span><span class="w"> </span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Variable declaration */</span>
+</pre></div>
+</div>
+</section>
+<section id="typedef">
+<h2>typedef<a class="headerlink" href="#typedef" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span><span class="p">.</span><span class="n">pips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="n">c1</span><span class="p">.</span><span class="n">suit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;s&#39;</span><span class="p">;</span>
+
+<span class="n">c2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c1</span><span class="p">;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">card</span><span class="w"> </span><span class="n">card</span><span class="p">;</span>
+
+<span class="n">card</span><span class="w"> </span><span class="n">c3</span><span class="p">,</span><span class="w"> </span><span class="n">c4</span><span class="p">,</span><span class="w"> </span><span class="n">c5</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">typedef</span></code>: This keyword allows you to create an alias for a type. In this case, it defines card as an alias for struct card.</p>
+<p><img alt="image.png" src="data:image/png;base64,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" /></p>
+</section>
+<section id="combining-structs-typedef">
+<h2>Combining structs &amp; typedef<a class="headerlink" href="#combining-structs-typedef" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">re</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">im</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">complex</span><span class="p">;</span>
+
+<span class="k">complex</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="k">complex</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-2.0</span><span class="p">}};</span>
+</pre></div>
+</div>
+</section>
+<section id="declarations-and-assignments">
+<h2>Declarations and Assignments<a class="headerlink" href="#declarations-and-assignments" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">student</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">grade</span><span class="p">;</span><span class="w">        </span><span class="c1">// Grade of the student (e.g., A, B, C)</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">last_name</span><span class="p">;</span><span class="w">   </span><span class="c1">// Last name of the student</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">student_id</span><span class="p">;</span><span class="w">    </span><span class="c1">// Student ID number</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">student</span><span class="w"> </span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tmp</span><span class="p">;</span>
+
+<span class="n">tmp</span><span class="p">.</span><span class="n">grade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">;</span>
+<span class="n">tmp</span><span class="p">.</span><span class="n">last_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Verstappen&quot;</span><span class="p">;</span>
+<span class="n">tmp</span><span class="p">.</span><span class="n">student_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9100017</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Grade: %c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="n">grade</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Last Name: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="n">last_name</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Student ID: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="n">student_id</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Access via Pointer (Grade): %c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">grade</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Access via Pointer (Last Name): %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">last_name</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Access via Pointer (Student ID): %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">student_id</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">student</span> <span class="pre">tmp</span></code>: Declares a variable <code class="docutils literal notranslate"><span class="pre">tmp</span></code> of type struct student.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">student</span> <span class="pre">*p</span> <span class="pre">=</span> <span class="pre">&amp;tmp;</span></code>: Declares a pointer <code class="docutils literal notranslate"><span class="pre">p</span></code> that stores the address of the struct tmp.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tmp.member</span></code>: Accesses a member of the struct directly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p-&gt;member</span></code>: Accesses a member of the struct indirectly through a pointer. Equivalent to <code class="docutils literal notranslate"><span class="pre">(*p).member</span></code>.</p></li>
+</ul>
+<section id="expression-table">
+<h3><strong>Expression Table</strong><a class="headerlink" href="#expression-table" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Expression</strong></p></th>
+<th class="head"><p><strong>Equivalent Expression</strong></p></th>
+<th class="head"><p><strong>Value</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tmp.grade</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">p-&gt;grade</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'A'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tmp.last_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">p-&gt;last_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;Verstappen&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">(*p).student_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">p-&gt;student_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">9100017</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*p-&gt;last_name</span> <span class="pre">+</span> <span class="pre">1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(*(p-&gt;last_name))</span> <span class="pre">+</span> <span class="pre">1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'W'</span></code> (next char)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*(p-&gt;last_name</span> <span class="pre">+</span> <span class="pre">2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(p-&gt;last_name)[2]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'r'</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="why-store-strings-as-pointers-in-structs">
+<h2>Why Store Strings as Pointers in Structs?<a class="headerlink" href="#why-store-strings-as-pointers-in-structs" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Dynamic Memory Allocation: Using a pointer, the actual string can be allocated dynamically, allowing it to change in size during runtime.</p></li>
+<li><p>Memory Efficiency: Instead of storing the entire string in the struct (fixed size), only the pointer is stored, which reduces the struct’s size.</p></li>
+<li><p>Flexibility: Strings can vary in length, and pointers accommodate strings of any length, as long as memory is allocated correctly.</p></li>
+</ol>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">student</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">student_id</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">last_name</span><span class="p">;</span><span class="w">  </span><span class="c1">// Pointer to a dynamically allocated string</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">grade</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cm">/* Dynamically allocate memory for the string*/</span>
+<span class="n">s</span><span class="p">.</span><span class="n">last_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">));</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">last_name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Memory allocation failed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/* Copy a string into the allocated memory*/</span>
+<span class="n">strcpy</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Verstappen&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="passing-structs">
+<h2>Passing Structs<a class="headerlink" href="#passing-structs" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">empolyee_data</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="cm">/*a pointer to the original struct is passed*/</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">prinf</span><span class="p">(</span><span class="s">&quot;Input the department number : &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;% d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">department</span><span class="p">.</span><span class="n">dept_no</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="cm">/*the original struct is modified*/</span>
+<span class="p">}</span>
+
+<span class="n">empolyee_data</span><span class="w"> </span><span class="n">e</span><span class="p">;</span>
+<span class="n">update</span><span class="p">(</span><span class="o">&amp;</span><span class="n">e</span><span class="p">);</span>
+
+</pre></div>
+</div>
+<p>Can we pass it by value ?</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "raminass/Software-Project",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dynamicMemory.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dynamic memory allocation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="linkedLists.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Linked Lists</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structs">Structs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typedef">typedef</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-structs-typedef">Combining structs &amp; typedef</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declarations-and-assignments">Declarations and Assignments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expression-table"><strong>Expression Table</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-store-strings-as-pointers-in-structs">Why Store Strings as Pointers in Structs?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-structs">Passing Structs</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Rami Nasser, School of Computer Science and AI, Tel Aviv University, Tel Aviv 6997801, Israel.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>Contact: <a href="mailto:raminass@gmail.com">raminass@gmail.com</a></p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

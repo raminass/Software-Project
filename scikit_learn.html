@@ -207,13 +207,11 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="strings%2BdynamicMemory.html">Strings + Dynamic Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dynamicMemory.html">Dynamic memory allocation</a></li>
 
 
-
-
-<li class="toctree-l1"><a class="reference internal" href="structures_linkedLists.html">Structures</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="structures.html">Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linkedLists.html">Linked Lists</a></li>
 
 
 
@@ -257,6 +255,7 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="c_exam.html">C Exam Questions</a></li>
 </ul>
 
     </div>
@@ -569,8 +568,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p><a href="https://colab.research.google.com/github/raminass/Software-Project/blob/main/scikit_learn.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="machine-learning">
+  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning">
 <h1>Machine Learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h1>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="data-science-in-python">
@@ -654,56 +652,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><html>
-<head><meta charset="utf-8" /></head>
-<body>
-    <div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>
-                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>    
-            <div id="9cb1f5d2-6f37-480f-81f0-be1f2d70781c" class="plotly-graph-div" style="height:500px; width:800px;"></div>
-            <script type="text/javascript">
-                
-                    window.PLOTLYENV=window.PLOTLYENV || {};
-                    
-                if (document.getElementById("9cb1f5d2-6f37-480f-81f0-be1f2d70781c")) {
-                    Plotly.newPlot(
-                        '9cb1f5d2-6f37-480f-81f0-be1f2d70781c',
-                        [{"hoverlabel": {"namelength": 0}, "hovertemplate": "square=%{x}<br>age=%{y}<br>price=%{z}<br>color=%{marker.color}", "legendgroup": "", "marker": {"color": [1507.4699972856183, 5904.197824706753, 7414.182835660773, 4921.9688010766085, 6078.01598010734, 8059.185150098928, 5220.257603273257, 892.3060349786342, 1187.962157230731, 4907.2962402470985, 3101.1233565090597, 10061.2849155607, 9831.06367080855, 7449.712710685806, 809.7036098078522, 5121.9548275560355, -75.15580388767462, 3148.7442192433296, 473.39563800436395, 8785.883761728535, 9760.054464607361, -22.501619218810575, 1622.3820711949459, 7633.19998245021, 8261.345969485674], "coloraxis": "coloraxis", "symbol": "circle"}, "mode": "markers", "name": "", "scene": "scene", "showlegend": false, "type": "scatter3d", "x": [32.100008250925484, 75.57551809826273, 87.80201283416805, 69.32444655338784, 78.47156938561271, 90.89364624441932, 72.88605559502315, 29.594148921011698, 27.50704087517225, 71.2224337609647, 54.141465001909495, 99.90513796615798, 97.2507743428591, 85.48559556243521, 31.47516300227894, 67.81224588562053, 5.7535551559039, 52.18732212474294, 18.920956172288182, 92.96447829864944, 99.53653716640099, 10.394331872174279, 37.556909583384446, 86.79598548237188, 88.84929226352493], "y": [2.362388594478883, 10.543523434610734, 9.78406428342279, 16.539894003144276, 9.264253214602274, 4.254555123127659, 10.326745783583922, 12.291455219053784, 8.129729469146756, 4.32494907970053, 10.817790980504844, 8.916558568963778, 7.850625178779839, 6.687044031331764, 6.507395699771294, 7.549346263292607, 10.160423758691465, 15.842800541119697, 12.353524373520344, 5.669038440317907, 2.456445397766711, 3.930652997151312, 14.322836363791765, 11.451537988022476, 0.6092097680603847], "z": [1507.4699972856183, 5904.197824706753, 7414.182835660773, 4921.9688010766085, 6078.01598010734, 8059.185150098928, 5220.257603273257, 892.3060349786342, 1187.962157230731, 4907.2962402470985, 3101.1233565090597, 10061.2849155607, 9831.06367080855, 7449.712710685806, 809.7036098078522, 5121.9548275560355, -75.15580388767462, 3148.7442192433296, 473.39563800436395, 8785.883761728535, 9760.054464607361, -22.501619218810575, 1622.3820711949459, 7633.19998245021, 8261.345969485674]}],
-                        {"coloraxis": {"colorbar": {"title": {"text": "color"}}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "height": 500, "legend": {"tracegroupgap": 0}, "margin": {"b": 0, "l": 0, "r": 0, "t": 0}, "scene": {"domain": {"x": [0.0, 1.0], "y": [0.0, 1.0]}, "xaxis": {"title": {"text": "square"}}, "yaxis": {"title": {"text": "age"}}, "zaxis": {"title": {"text": "price"}}}, "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "width": 800},
-                        {"responsive": true}
-                    ).then(function(){
-                            
-var gd = document.getElementById('9cb1f5d2-6f37-480f-81f0-be1f2d70781c');
-var x = new MutationObserver(function (mutations, observer) {{
-        var display = window.getComputedStyle(gd).display;
-        if (!display || display === 'none') {{
-            console.log([gd, 'removed!']);
-            Plotly.purge(gd);
-            observer.disconnect();
-        }}
-}});
-
-// Listen for the removal of the full notebook cells
-var notebookContainer = gd.closest('#notebook-container');
-if (notebookContainer) {{
-    x.observe(notebookContainer, {childList: true});
-}}
-
-// Listen for the clearing of the current output cell
-var outputEl = gd.closest('.output');
-if (outputEl) {{
-    x.observe(outputEl, {childList: true});
-}}
-
-                        })
-                };
-                
-            </script>
-        </div>
-</body>
-</html></div></div>
 </div>
 </section>
 <section id="high-dimensional-features">
@@ -823,48 +771,6 @@ if (outputEl) {{
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.. _diabetes_dataset:
-
-Diabetes dataset
-----------------
-
-Ten baseline variables, age, sex, body mass index, average blood
-pressure, and six blood serum measurements were obtained for each of n =
-442 diabetes patients, as well as the response of interest, a
-quantitative measure of disease progression one year after baseline.
-
-**Data Set Characteristics:**
-
-  :Number of Instances: 442
-
-  :Number of Attributes: First 10 columns are numeric predictive values
-
-  :Target: Column 11 is a quantitative measure of disease progression one year after baseline
-
-  :Attribute Information:
-      - Age
-      - Sex
-      - Body mass index
-      - Average blood pressure
-      - S1
-      - S2
-      - S3
-      - S4
-      - S5
-      - S6
-
-Note: Each of these 10 feature variables have been mean centered and scaled by the standard deviation times `n_samples` (i.e. the sum of squares of each column totals 1).
-
-Source URL:
-https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html
-
-For more information see:
-Bradley Efron, Trevor Hastie, Iain Johnstone and Robert Tibshirani (2004) &quot;Least Angle Regression,&quot; Annals of Statistics (with discussion), 407-499.
-(https://web.stanford.edu/~hastie/Papers/LARS/LeastAngle_2002.pdf)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -874,112 +780,6 @@ Bradley Efron, Trevor Hastie, Iain Johnstone and Robert Tibshirani (2004) &quot;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age</th>
-      <th>sex</th>
-      <th>bmi</th>
-      <th>bp</th>
-      <th>s1</th>
-      <th>s2</th>
-      <th>s3</th>
-      <th>s4</th>
-      <th>s5</th>
-      <th>s6</th>
-      <th>target</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.038076</td>
-      <td>0.050680</td>
-      <td>0.061696</td>
-      <td>0.021872</td>
-      <td>-0.044223</td>
-      <td>-0.034821</td>
-      <td>-0.043401</td>
-      <td>-0.002592</td>
-      <td>0.019908</td>
-      <td>-0.017646</td>
-      <td>151.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>-0.001882</td>
-      <td>-0.044642</td>
-      <td>-0.051474</td>
-      <td>-0.026328</td>
-      <td>-0.008449</td>
-      <td>-0.019163</td>
-      <td>0.074412</td>
-      <td>-0.039493</td>
-      <td>-0.068330</td>
-      <td>-0.092204</td>
-      <td>75.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.085299</td>
-      <td>0.050680</td>
-      <td>0.044451</td>
-      <td>-0.005671</td>
-      <td>-0.045599</td>
-      <td>-0.034194</td>
-      <td>-0.032356</td>
-      <td>-0.002592</td>
-      <td>0.002864</td>
-      <td>-0.025930</td>
-      <td>141.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>-0.089063</td>
-      <td>-0.044642</td>
-      <td>-0.011595</td>
-      <td>-0.036656</td>
-      <td>0.012191</td>
-      <td>0.024991</td>
-      <td>-0.036038</td>
-      <td>0.034309</td>
-      <td>0.022692</td>
-      <td>-0.009362</td>
-      <td>206.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.005383</td>
-      <td>-0.044642</td>
-      <td>-0.036385</td>
-      <td>0.021872</td>
-      <td>0.003935</td>
-      <td>0.015596</td>
-      <td>0.008142</td>
-      <td>-0.002592</td>
-      <td>-0.031991</td>
-      <td>-0.046641</td>
-      <td>135.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -987,24 +787,12 @@ Bradley Efron, Trevor Hastie, Iain Johnstone and Robert Tibshirani (2004) &quot;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7ff7d91c7250&gt;
-</pre></div>
-</div>
-<img alt="_images/1b5feb4a5daf156bb6720fb341a8c3344a3ceb11cfa00be3b9676e136c87a449.png" src="_images/1b5feb4a5daf156bb6720fb341a8c3344a3ceb11cfa00be3b9676e136c87a449.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_diabetes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;bmi&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7ff7d8954d50&gt;
-</pre></div>
-</div>
-<img alt="_images/dc1fdc964d8421a1a9e8a864a0d26d6369ef5e6c7f2b429829f8ee97da728027.png" src="_images/dc1fdc964d8421a1a9e8a864a0d26d6369ef5e6c7f2b429829f8ee97da728027.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1032,11 +820,6 @@ Bradley Efron, Trevor Hastie, Iain Johnstone and Robert Tibshirani (2004) &quot;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[949.43526038] 152.1334841628967
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1044,20 +827,10 @@ Bradley Efron, Trevor Hastie, Iain Johnstone and Robert Tibshirani (2004) &quot;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3439237602253803
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.05</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.02</span><span class="p">]]))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([199.60524718, 133.14477896])
 </pre></div>
 </div>
 </div>
@@ -1071,12 +844,6 @@ Bradley Efron, Trevor Hastie, Iain Johnstone and Robert Tibshirani (2004) &quot;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff7d0c6e750&gt;]
-</pre></div>
-</div>
-<img alt="_images/bfbac0264d838c12a6ce2b4d59fe4c19d907ac9b6fe31a31de06286594b992ab.png" src="_images/bfbac0264d838c12a6ce2b4d59fe4c19d907ac9b6fe31a31de06286594b992ab.png" />
-</div>
 </div>
 </section>
 <section id="id3">
@@ -1087,73 +854,6 @@ Bradley Efron, Trevor Hastie, Iain Johnstone and Robert Tibshirani (2004) &quot;
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
 <span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">DESCR</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.. _iris_dataset:
-
-Iris plants dataset
---------------------
-
-**Data Set Characteristics:**
-
-    :Number of Instances: 150 (50 in each of three classes)
-    :Number of Attributes: 4 numeric, predictive attributes and the class
-    :Attribute Information:
-        - sepal length in cm
-        - sepal width in cm
-        - petal length in cm
-        - petal width in cm
-        - class:
-                - Iris-Setosa
-                - Iris-Versicolour
-                - Iris-Virginica
-                
-    :Summary Statistics:
-
-    ============== ==== ==== ======= ===== ====================
-                    Min  Max   Mean    SD   Class Correlation
-    ============== ==== ==== ======= ===== ====================
-    sepal length:   4.3  7.9   5.84   0.83    0.7826
-    sepal width:    2.0  4.4   3.05   0.43   -0.4194
-    petal length:   1.0  6.9   3.76   1.76    0.9490  (high!)
-    petal width:    0.1  2.5   1.20   0.76    0.9565  (high!)
-    ============== ==== ==== ======= ===== ====================
-
-    :Missing Attribute Values: None
-    :Class Distribution: 33.3% for each of 3 classes.
-    :Creator: R.A. Fisher
-    :Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)
-    :Date: July, 1988
-
-The famous Iris database, first used by Sir R.A. Fisher. The dataset is taken
-from Fisher&#39;s paper. Note that it&#39;s the same as in R, but not as in the UCI
-Machine Learning Repository, which has two wrong data points.
-
-This is perhaps the best known database to be found in the
-pattern recognition literature.  Fisher&#39;s paper is a classic in the field and
-is referenced frequently to this day.  (See Duda &amp; Hart, for example.)  The
-data set contains 3 classes of 50 instances each, where each class refers to a
-type of iris plant.  One class is linearly separable from the other 2; the
-latter are NOT linearly separable from each other.
-
-.. topic:: References
-
-   - Fisher, R.A. &quot;The use of multiple measurements in taxonomic problems&quot;
-     Annual Eugenics, 7, Part II, 179-188 (1936); also in &quot;Contributions to
-     Mathematical Statistics&quot; (John Wiley, NY, 1950).
-   - Duda, R.O., &amp; Hart, P.E. (1973) Pattern Classification and Scene Analysis.
-     (Q327.D83) John Wiley &amp; Sons.  ISBN 0-471-22361-1.  See page 218.
-   - Dasarathy, B.V. (1980) &quot;Nosing Around the Neighborhood: A New System
-     Structure and Classification Rule for Recognition in Partially Exposed
-     Environments&quot;.  IEEE Transactions on Pattern Analysis and Machine
-     Intelligence, Vol. PAMI-2, No. 1, 67-71.
-   - Gates, G.W. (1972) &quot;The Reduced Nearest Neighbor Rule&quot;.  IEEE Transactions
-     on Information Theory, May 1972, 431-433.
-   - See also: 1988 MLC Proceedings, 54-64.  Cheeseman et al&quot;s AUTOCLASS II
-     conceptual clustering system finds 3 classes in the data.
-   - Many, many more ...
 </pre></div>
 </div>
 </div>
@@ -1176,9 +876,6 @@ latter are NOT linearly separable from each other.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/a815a92724f133e11e4c96af807c137a73ea0ed8b7fc16137ec23772a5e4030e.png" src="_images/a815a92724f133e11e4c96af807c137a73ea0ed8b7fc16137ec23772a5e4030e.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1192,9 +889,6 @@ latter are NOT linearly separable from each other.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/d5a7a3fc867e0bfcf3f709cfd932830327dff5a15155fc63560dbb6420d7611b.png" src="_images/d5a7a3fc867e0bfcf3f709cfd932830327dff5a15155fc63560dbb6420d7611b.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1202,12 +896,6 @@ latter are NOT linearly separable from each other.
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(120, 2) (120,)
-(30, 2) (30,)
 </pre></div>
 </div>
 </div>
@@ -1220,28 +908,10 @@ latter are NOT linearly separable from each other.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(algorithm=&#39;auto&#39;, leaf_size=30, metric=&#39;minkowski&#39;,
-                     metric_params=None, n_jobs=None, n_neighbors=5, p=2,
-                     weights=&#39;uniform&#39;)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;virginica&#39;, &#39;versicolor&#39;, &#39;setosa&#39;, &#39;virginica&#39;, &#39;setosa&#39;,
-       &#39;virginica&#39;, &#39;setosa&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;,
-       &#39;virginica&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;,
-       &#39;versicolor&#39;, &#39;setosa&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;setosa&#39;,
-       &#39;setosa&#39;, &#39;virginica&#39;, &#39;versicolor&#39;, &#39;setosa&#39;, &#39;setosa&#39;,
-       &#39;virginica&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;,
-       &#39;setosa&#39;], dtype=&#39;&lt;U10&#39;)
 </pre></div>
 </div>
 </div>
@@ -1254,11 +924,6 @@ latter are NOT linearly separable from each other.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1267,28 +932,10 @@ latter are NOT linearly separable from each other.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">y_test</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
-
-      setosa       1.00      1.00      1.00        11
-  versicolor       1.00      1.00      1.00        13
-   virginica       1.00      1.00      1.00         6
-
-    accuracy                           1.00        30
-   macro avg       1.00      1.00      1.00        30
-weighted avg       1.00      1.00      1.00        30
 </pre></div>
 </div>
 </div>
@@ -1304,20 +951,10 @@ weighted avg       1.00      1.00      1.00        30
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.96666667, 0.96666667, 0.93333333, 0.96666667, 1.        ])
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s2"> (+/- </span><span class="si">{</span><span class="n">scores</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.9666666666666668 (+/- 0.02108185106778919)
 </pre></div>
 </div>
 </div>
@@ -1345,9 +982,6 @@ weighted avg       1.00      1.00      1.00        30
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/a815a92724f133e11e4c96af807c137a73ea0ed8b7fc16137ec23772a5e4030e.png" src="_images/a815a92724f133e11e4c96af807c137a73ea0ed8b7fc16137ec23772a5e4030e.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1358,28 +992,10 @@ weighted avg       1.00      1.00      1.00        30
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KMeans(algorithm=&#39;auto&#39;, copy_x=True, init=&#39;k-means++&#39;, max_iter=300,
-       n_clusters=3, n_init=10, n_jobs=None, precompute_distances=&#39;auto&#39;,
-       random_state=0, tol=0.0001, verbose=0)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">labels_</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-       1, 1, 1, 1, 1, 1, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0,
-       0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 0, 2, 0, 2, 0, 0, 2, 2, 0, 0, 0, 0,
-       0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2], dtype=int32)
 </pre></div>
 </div>
 </div>
@@ -1402,9 +1018,6 @@ weighted avg       1.00      1.00      1.00        30
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/169d162c8404c23045ee4c3a10bc07fec5cd22b534b2c6b13c02488fb2c2132b.png" src="_images/169d162c8404c23045ee4c3a10bc07fec5cd22b534b2c6b13c02488fb2c2132b.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1416,9 +1029,6 @@ weighted avg       1.00      1.00      1.00        30
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/a815a92724f133e11e4c96af807c137a73ea0ed8b7fc16137ec23772a5e4030e.png" src="_images/a815a92724f133e11e4c96af807c137a73ea0ed8b7fc16137ec23772a5e4030e.png" />
 </div>
 </div>
 </section>
@@ -1439,128 +1049,6 @@ weighted avg       1.00      1.00      1.00        30
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.. _breast_cancer_dataset:
-
-Breast cancer wisconsin (diagnostic) dataset
---------------------------------------------
-
-**Data Set Characteristics:**
-
-    :Number of Instances: 569
-
-    :Number of Attributes: 30 numeric, predictive attributes and the class
-
-    :Attribute Information:
-        - radius (mean of distances from center to points on the perimeter)
-        - texture (standard deviation of gray-scale values)
-        - perimeter
-        - area
-        - smoothness (local variation in radius lengths)
-        - compactness (perimeter^2 / area - 1.0)
-        - concavity (severity of concave portions of the contour)
-        - concave points (number of concave portions of the contour)
-        - symmetry 
-        - fractal dimension (&quot;coastline approximation&quot; - 1)
-
-        The mean, standard error, and &quot;worst&quot; or largest (mean of the three
-        largest values) of these features were computed for each image,
-        resulting in 30 features.  For instance, field 3 is Mean Radius, field
-        13 is Radius SE, field 23 is Worst Radius.
-
-        - class:
-                - WDBC-Malignant
-                - WDBC-Benign
-
-    :Summary Statistics:
-
-    ===================================== ====== ======
-                                           Min    Max
-    ===================================== ====== ======
-    radius (mean):                        6.981  28.11
-    texture (mean):                       9.71   39.28
-    perimeter (mean):                     43.79  188.5
-    area (mean):                          143.5  2501.0
-    smoothness (mean):                    0.053  0.163
-    compactness (mean):                   0.019  0.345
-    concavity (mean):                     0.0    0.427
-    concave points (mean):                0.0    0.201
-    symmetry (mean):                      0.106  0.304
-    fractal dimension (mean):             0.05   0.097
-    radius (standard error):              0.112  2.873
-    texture (standard error):             0.36   4.885
-    perimeter (standard error):           0.757  21.98
-    area (standard error):                6.802  542.2
-    smoothness (standard error):          0.002  0.031
-    compactness (standard error):         0.002  0.135
-    concavity (standard error):           0.0    0.396
-    concave points (standard error):      0.0    0.053
-    symmetry (standard error):            0.008  0.079
-    fractal dimension (standard error):   0.001  0.03
-    radius (worst):                       7.93   36.04
-    texture (worst):                      12.02  49.54
-    perimeter (worst):                    50.41  251.2
-    area (worst):                         185.2  4254.0
-    smoothness (worst):                   0.071  0.223
-    compactness (worst):                  0.027  1.058
-    concavity (worst):                    0.0    1.252
-    concave points (worst):               0.0    0.291
-    symmetry (worst):                     0.156  0.664
-    fractal dimension (worst):            0.055  0.208
-    ===================================== ====== ======
-
-    :Missing Attribute Values: None
-
-    :Class Distribution: 212 - Malignant, 357 - Benign
-
-    :Creator:  Dr. William H. Wolberg, W. Nick Street, Olvi L. Mangasarian
-
-    :Donor: Nick Street
-
-    :Date: November, 1995
-
-This is a copy of UCI ML Breast Cancer Wisconsin (Diagnostic) datasets.
-https://goo.gl/U2Uwz2
-
-Features are computed from a digitized image of a fine needle
-aspirate (FNA) of a breast mass.  They describe
-characteristics of the cell nuclei present in the image.
-
-Separating plane described above was obtained using
-Multisurface Method-Tree (MSM-T) [K. P. Bennett, &quot;Decision Tree
-Construction Via Linear Programming.&quot; Proceedings of the 4th
-Midwest Artificial Intelligence and Cognitive Science Society,
-pp. 97-101, 1992], a classification method which uses linear
-programming to construct a decision tree.  Relevant features
-were selected using an exhaustive search in the space of 1-4
-features and 1-3 separating planes.
-
-The actual linear program used to obtain the separating plane
-in the 3-dimensional space is that described in:
-[K. P. Bennett and O. L. Mangasarian: &quot;Robust Linear
-Programming Discrimination of Two Linearly Inseparable Sets&quot;,
-Optimization Methods and Software 1, 1992, 23-34].
-
-This database is also available through the UW CS ftp server:
-
-ftp ftp.cs.wisc.edu
-cd math-prog/cpo-dataset/machine-learn/WDBC/
-
-.. topic:: References
-
-   - W.N. Street, W.H. Wolberg and O.L. Mangasarian. Nuclear feature extraction 
-     for breast tumor diagnosis. IS&amp;T/SPIE 1993 International Symposium on 
-     Electronic Imaging: Science and Technology, volume 1905, pages 861-870,
-     San Jose, CA, 1993.
-   - O.L. Mangasarian, W.N. Street and W.H. Wolberg. Breast cancer diagnosis and 
-     prognosis via linear programming. Operations Research, 43(4), pages 570-577, 
-     July-August 1995.
-   - W.H. Wolberg, W.N. Street, and O.L. Mangasarian. Machine learning techniques
-     to diagnose breast cancer from fine-needle aspirates. Cancer Letters 77 (1994) 
-     163-171.
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1576,20 +1064,6 @@ cd math-prog/cpo-dataset/machine-learn/WDBC/
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;mean radius&#39;, &#39;mean texture&#39;, &#39;mean perimeter&#39;, &#39;mean area&#39;,
-       &#39;mean smoothness&#39;, &#39;mean compactness&#39;, &#39;mean concavity&#39;,
-       &#39;mean concave points&#39;, &#39;mean symmetry&#39;, &#39;mean fractal dimension&#39;,
-       &#39;radius error&#39;, &#39;texture error&#39;, &#39;perimeter error&#39;, &#39;area error&#39;,
-       &#39;smoothness error&#39;, &#39;compactness error&#39;, &#39;concavity error&#39;,
-       &#39;concave points error&#39;, &#39;symmetry error&#39;,
-       &#39;fractal dimension error&#39;, &#39;worst radius&#39;, &#39;worst texture&#39;,
-       &#39;worst perimeter&#39;, &#39;worst area&#39;, &#39;worst smoothness&#39;,
-       &#39;worst compactness&#39;, &#39;worst concavity&#39;, &#39;worst concave points&#39;,
-       &#39;worst symmetry&#39;, &#39;worst fractal dimension&#39;], dtype=&#39;&lt;U23&#39;)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1602,20 +1076,6 @@ cd math-prog/cpo-dataset/machine-learn/WDBC/
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-3.16286735e-15, -6.53060890e-15, -7.07889127e-16, -8.79983452e-16,
-         6.13217737e-15, -1.12036918e-15, -4.42138027e-16,  9.73249991e-16,
-        -1.97167024e-15, -1.45363120e-15, -9.07641468e-16, -8.85349205e-16,
-         1.77367396e-15, -8.29155139e-16, -7.54180940e-16, -3.92187747e-16,
-         7.91789988e-16, -2.73946068e-16, -3.10823423e-16, -3.36676596e-16,
-        -2.33322442e-15,  1.76367415e-15, -1.19802625e-15,  5.04966114e-16,
-        -5.21317026e-15, -2.17478837e-15,  6.85645643e-16, -1.41265636e-16,
-        -2.28956670e-15,  2.57517109e-15]),
- array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
-        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]))
 </pre></div>
 </div>
 </div>
@@ -1635,89 +1095,6 @@ cd math-prog/cpo-dataset/machine-learn/WDBC/
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>pc_1</th>
-      <th>pc_2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>9.192837</td>
-      <td>1.948583</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2.387802</td>
-      <td>-3.768172</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5.733896</td>
-      <td>-1.075174</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>7.122953</td>
-      <td>10.275589</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>3.935302</td>
-      <td>-1.948072</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>564</th>
-      <td>6.439315</td>
-      <td>-3.576817</td>
-    </tr>
-    <tr>
-      <th>565</th>
-      <td>3.793382</td>
-      <td>-3.584048</td>
-    </tr>
-    <tr>
-      <th>566</th>
-      <td>1.256179</td>
-      <td>-1.902297</td>
-    </tr>
-    <tr>
-      <th>567</th>
-      <td>10.374794</td>
-      <td>1.672010</td>
-    </tr>
-    <tr>
-      <th>568</th>
-      <td>-5.475243</td>
-      <td>-0.670637</td>
-    </tr>
-  </tbody>
-</table>
-<p>569 rows × 2 columns</p>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1726,12 +1103,6 @@ cd math-prog/cpo-dataset/machine-learn/WDBC/
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f99b38bbf10&gt;
-</pre></div>
-</div>
-<img alt="_images/3180390e2d909a8a39ea898244826a9ee2e657a7ec3b09b7ded9da4e3ff3470c.png" src="_images/3180390e2d909a8a39ea898244826a9ee2e657a7ec3b09b7ded9da4e3ff3470c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1746,30 +1117,10 @@ cd math-prog/cpo-dataset/machine-learn/WDBC/
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy: 0.8882978723404256
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(167.4, 181.2, &#39;X[0] &lt;= 0.432\ngini = 0.474\nsamples = 381\nvalue = [234, 147]&#39;),
- Text(83.7, 108.72, &#39;X[0] &lt;= -0.958\ngini = 0.125\nsamples = 238\nvalue = [222, 16]&#39;),
- Text(41.85, 36.23999999999998, &#39;gini = 0.021\nsamples = 192\nvalue = [190, 2]&#39;),
- Text(125.55000000000001, 36.23999999999998, &#39;gini = 0.423\nsamples = 46\nvalue = [32, 14]&#39;),
- Text(251.10000000000002, 108.72, &#39;X[1] &lt;= 3.409\ngini = 0.154\nsamples = 143\nvalue = [12, 131]&#39;),
- Text(209.25, 36.23999999999998, &#39;gini = 0.06\nsamples = 129\nvalue = [4, 125]&#39;),
- Text(292.95, 36.23999999999998, &#39;gini = 0.49\nsamples = 14\nvalue = [8, 6]&#39;)]
-</pre></div>
-</div>
-<img alt="_images/6ac415decd590e7c8549ffd090f666119c7ed985087fecf71b75a66b06debc3c.png" src="_images/6ac415decd590e7c8549ffd090f666119c7ed985087fecf71b75a66b06debc3c.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">y_train</span><span class="o">==</span><span class="s1">&#39;benign&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>234
 </pre></div>
 </div>
 </div>
