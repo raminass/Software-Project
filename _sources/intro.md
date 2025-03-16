@@ -18,7 +18,7 @@ $\ HW_0 (optional)$
 
 **Submission:** In pairs (all the assignments including project)
 
-**Project Deadline:** 24/04/2025
+**Project Deadline:** 28/09/2025
 
 **Communication:** Moodle Forums
 
