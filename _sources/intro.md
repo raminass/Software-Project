@@ -41,18 +41,18 @@ Task: Clustering
 
 ## Course Schedule
 
-| Class no. | Subject and Requirements |
-|-----------|--------------------------|
-| 1         | The programming environment & Python review |
-| 2         | Introduction and basic C (ex. 0) |
-| 3         | Functions |
-| 4         | Arrays and pointers |
-| 5         | C tutorial (ex. 1) |
-| 6         | Strings and dynamic memory |
-| 7         | Structs and linked lists |
-| 8         | Files, bitwise operators, and the preprocessor |
-| 9         | C-Python API and data science libraries 1 (ex. 2) |
-| 10        | Data science libraries 2 |
-| 11        | Large scale projects and C exam|
-| 12        | Parallel computing|
-| 13        | Final project |
+| Class no. | Subject and Requirements | Wed (13:00-15:00) | Thu (15:00-17:00) |
+|-----------|--------------------------|----------------|----------------|
+| 1         | The programming environment & Python review | 19/03/2025 | 20/03/2025 |
+| 2         | Introduction and basic C (ex. 0) | 26/03/2025 | 27/03/2025 |
+| 3         | Functions | 02/04/2025 | 03/04/2025 |
+| 4         | Arrays and pointers | 23/04/2025 | 24/04/2025 |
+| 5         | C tutorial (ex. 1) | 07/05/2025 | 08/05/2025 |
+| 6         | Strings and dynamic memory | 14/05/2025 | 15/05/2025 |
+| 7         | Structs and linked lists | 21/05/2025 | 22/05/2025 |
+| 8         | Files, bitwise operators, and the preprocessor | 28/05/2025 | N/A |
+| 9         | C-Python API and data science libraries 1 (ex. 2) | 04/06/2025 | 05/06/2025 |
+| 10        | Data science libraries 2 | 11/06/2025 | 12/06/2025 |
+| 11        | Large scale projects and C exam| 18/06/2025 | 19/06/2025 |
+| 12        | Parallel computing| 25/06/2025 | 26/06/2025 |
+| 13        | Final project | 02/07/2025 | N/A |
