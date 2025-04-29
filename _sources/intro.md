@@ -50,9 +50,9 @@ Task: Clustering
 | 5         | C tutorial (ex. 1) | 07/05/2025 | 08/05/2025 |
 | 6         | Strings and dynamic memory | 14/05/2025 | 15/05/2025 |
 | 7         | Structs and linked lists | 21/05/2025 | 22/05/2025 |
-| 8         | Files, bitwise operators, and the preprocessor | 28/05/2025 | N/A |
-| 9         | C-Python API and data science libraries 1 (ex. 2) | 04/06/2025 | 05/06/2025 |
-| 10        | Data science libraries 2 | 11/06/2025 | 12/06/2025 |
-| 11        | Large scale projects and C exam| 18/06/2025 | 19/06/2025 |
-| 12        | Parallel computing| 25/06/2025 | 26/06/2025 |
+| 8         | Parallel computing | 28/05/2025 | N/A |
+| 9         | Files, bitwise operators, and the preprocessor | 04/06/2025 | 05/06/2025 |
+| 10        | C-Python API and data science libraries 1 (ex. 2) | 11/06/2025 | 12/06/2025 |
+| 11        | Data science libraries 2 | 18/06/2025 | 19/06/2025 |
+| 12        | Large scale projects and C exam | 25/06/2025 | 26/06/2025 |
 | 13        | Final project | 02/07/2025 | N/A |
