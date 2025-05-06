@@ -74,7 +74,7 @@
     <script src="_static/custom_analytics.js?v=c96c2ea8"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Dynamic memory allocation" href="dynamicMemory.html" />
+    <link rel="next" title="Strings" href="strings.html" />
     <link rel="prev" title="Arrays + Pointers" href="arrays_pointers.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -219,6 +219,8 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="dynamicMemory.html">Dynamic memory allocation</a></li>
 
 
@@ -261,8 +263,7 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="large_scale.html">Large Scale + C Example Test</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="large_scale.html">Large Scale</a></li>
 
 
 
@@ -534,9 +535,20 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling">Compiling</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">Debugging</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-using-cmd">Manual using CMD</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-the-code-attempt-1">Fixing the Code, attempt 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-first-attempt-of-fixing">Checking first attempt of fixing:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-the-code-attempt-2">Fixing the code, attempt 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-program">1.Running the program</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-the-c-program">2.Compile the C program</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-gdb">3.Launch gdb</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-a-break-points-inside-c-program">4.Set up a break points inside C program</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-c-program-in-gdb-debugger">5.Run the C program in gdb debugger</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-the-variable-values-inside-gdb-debugger">6.Printing the variable values inside gdb debugger</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-the-code-attempt-1">Fixing the Code, attempt 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-first-attempt-of-fixing">Checking first attempt of fixing:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-stepping-over-in-gdb-commands">7. Continue, stepping over/in – gdb commands</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-the-code-attempt-2">Fixing the code, attempt 2</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gdb-command-shortcuts">gdb command shortcuts</a></li>
 </ul>
 </li>
@@ -656,8 +668,9 @@ main:
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>###1.Running the program
-Let’s test the program for example with input = 3</p>
+<section id="running-the-program">
+<h3>1.Running the program<a class="headerlink" href="#running-the-program" title="Link to this heading">#</a></h3>
+<p>Let’s test the program for example with input = 3</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>factorial.c
 ./a.out
 Enter<span class="w"> </span>the<span class="w"> </span>number:<span class="w"> </span><span class="m">3</span>
@@ -667,22 +680,30 @@ The<span class="w"> </span>factorial<span class="w"> </span>of<span class="w"> <
 <p>The output is incorrect as we expect the answer to be 6 for input=3.
 Let’s find the bug and fix the program.
 Next are the steps for debugging C program manually using CMD.</p>
-<p>###2.Compile the C program
-With regular compiler by adding debugging option -g</p>
+</section>
+<section id="compile-the-c-program">
+<h3>2.Compile the C program<a class="headerlink" href="#compile-the-c-program" title="Link to this heading">#</a></h3>
+<p>With regular compiler by adding debugging option -g</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>-g<span class="w"> </span>factorial.c
 </pre></div>
 </div>
-<p>###3.Launch gdb</p>
+</section>
+<section id="launch-gdb">
+<h3>3.Launch gdb<a class="headerlink" href="#launch-gdb" title="Link to this heading">#</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gdb<span class="w"> </span>a.out
 <span class="o">(</span>gdb<span class="o">)</span>
 </pre></div>
 </div>
-<p>###4.Set up a break points inside C program</p>
+</section>
+<section id="set-up-a-break-points-inside-c-program">
+<h3>4.Set up a break points inside C program<a class="headerlink" href="#set-up-a-break-points-inside-c-program" title="Link to this heading">#</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span><span class="k">break</span><span class="w"> </span><span class="m">10</span>
 Breakpoint<span class="w"> </span><span class="m">1</span><span class="w"> </span>at<span class="w"> </span>0x763:<span class="w"> </span>file<span class="w"> </span>factorial.c,<span class="w"> </span>line<span class="w"> </span><span class="m">10</span>.
 </pre></div>
 </div>
-<p>###5.Run the C program in gdb debugger</p>
+</section>
+<section id="run-the-c-program-in-gdb-debugger">
+<h3>5.Run the C program in gdb debugger<a class="headerlink" href="#run-the-c-program-in-gdb-debugger" title="Link to this heading">#</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>run<span class="w"> </span><span class="o">[</span>args<span class="o">]</span>
 Starting<span class="w"> </span>program:<span class="w"> </span>.../a.out
 Enter<span class="w"> </span>the<span class="w"> </span>number:<span class="w"> </span><span class="m">3</span>
@@ -693,7 +714,9 @@ Enter<span class="w"> </span>the<span class="w"> </span>number:<span class="w"> 
 <span class="m">10</span><span class="w">                      </span><span class="nv">j</span><span class="o">=</span>j*i<span class="p">;</span><span class="w">    </span>
 </pre></div>
 </div>
-<p>###6.Printing the variable values inside gdb debugger</p>
+</section>
+<section id="printing-the-variable-values-inside-gdb-debugger">
+<h3>6.Printing the variable values inside gdb debugger<a class="headerlink" href="#printing-the-variable-values-inside-gdb-debugger" title="Link to this heading">#</a></h3>
 <p>Now we can use various gdb commands to debug the C program as explained in the sections below.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>print<span class="w"> </span>i
 <span class="w">  </span><span class="nv">$1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
@@ -712,7 +735,7 @@ Enter<span class="w"> </span>the<span class="w"> </span>number:<span class="w"> 
 <p>Even after this fix there seems to be some problem in the factorial.c program, as it still gives wrong factorial value.</p>
 <p>So, place the break point in 10th line, and continue as explained in the next section.</p>
 <section id="fixing-the-code-attempt-1">
-<h3>Fixing the Code, attempt 1<a class="headerlink" href="#fixing-the-code-attempt-1" title="Link to this heading">#</a></h3>
+<h4>Fixing the Code, attempt 1<a class="headerlink" href="#fixing-the-code-attempt-1" title="Link to this heading">#</a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#</span><span class="w"> </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
@@ -730,23 +753,25 @@ Enter<span class="w"> </span>the<span class="w"> </span>number:<span class="w"> 
 </div>
 </section>
 <section id="checking-first-attempt-of-fixing">
-<h3>Checking first attempt of fixing:<a class="headerlink" href="#checking-first-attempt-of-fixing" title="Link to this heading">#</a></h3>
+<h4>Checking first attempt of fixing:<a class="headerlink" href="#checking-first-attempt-of-fixing" title="Link to this heading">#</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>factorial.c
 ./a.out
 Enter<span class="w"> </span>the<span class="w"> </span>number:<span class="w"> </span><span class="m">3</span>
 The<span class="w"> </span>factorial<span class="w"> </span>of<span class="w"> </span><span class="m">3</span><span class="w"> </span>is<span class="w"> </span><span class="m">2</span>
 </pre></div>
 </div>
-<p>###7.Continue, stepping over/in – gdb commands
-There are three kind of gdb operations you can choose when the program stops at a break point. They are continuing until the next break point, stepping in, or stepping over the next program lines.</p>
+</section>
+</section>
+<section id="continue-stepping-over-in-gdb-commands">
+<h3>7. Continue, stepping over/in – gdb commands<a class="headerlink" href="#continue-stepping-over-in-gdb-commands" title="Link to this heading">#</a></h3>
+<p>There are three kind of gdb operations you can choose when the program stops at a break point. They are continuing until the next break point, stepping in, or stepping over the next program lines.</p>
 <ul class="simple">
 <li><p>c or continue: Debugger will continue executing until the next break point.</p></li>
 <li><p>n or next: Debugger will execute the next line as single instruction.</p></li>
 <li><p>s or step: Same as next, but does not treats function as a single instruction, instead goes into the function and executes it line by line.</p></li>
 </ul>
-</section>
 <section id="fixing-the-code-attempt-2">
-<h3>Fixing the code, attempt 2<a class="headerlink" href="#fixing-the-code-attempt-2" title="Link to this heading">#</a></h3>
+<h4>Fixing the code, attempt 2<a class="headerlink" href="#fixing-the-code-attempt-2" title="Link to this heading">#</a></h4>
 <p>By continuing or stepping through you could have found that the issue is because we have not used the &lt;= in the ‘for loop’ condition checking. So changing that from &lt; to &lt;= will solve the issue.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
@@ -763,6 +788,7 @@ There are three kind of gdb operations you can choose when the program stops at 
 <span class="p">}</span>
 </pre></div>
 </div>
+</section>
 </section>
 <section id="gdb-command-shortcuts">
 <h3>gdb command shortcuts<a class="headerlink" href="#gdb-command-shortcuts" title="Link to this heading">#</a></h3>
@@ -1311,11 +1337,11 @@ Answer: We will show an option with 2d linked list.</p>
       </div>
     </a>
     <a class="right-next"
-       href="dynamicMemory.html"
+       href="strings.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Dynamic memory allocation</p>
+        <p class="prev-next-title">Strings</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1339,9 +1365,20 @@ Answer: We will show an option with 2d linked list.</p>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling">Compiling</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">Debugging</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-using-cmd">Manual using CMD</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-the-code-attempt-1">Fixing the Code, attempt 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-first-attempt-of-fixing">Checking first attempt of fixing:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-the-code-attempt-2">Fixing the code, attempt 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-program">1.Running the program</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-the-c-program">2.Compile the C program</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-gdb">3.Launch gdb</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-a-break-points-inside-c-program">4.Set up a break points inside C program</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-c-program-in-gdb-debugger">5.Run the C program in gdb debugger</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-the-variable-values-inside-gdb-debugger">6.Printing the variable values inside gdb debugger</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-the-code-attempt-1">Fixing the Code, attempt 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-first-attempt-of-fixing">Checking first attempt of fixing:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-stepping-over-in-gdb-commands">7. Continue, stepping over/in – gdb commands</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-the-code-attempt-2">Fixing the code, attempt 2</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gdb-command-shortcuts">gdb command shortcuts</a></li>
 </ul>
 </li>
