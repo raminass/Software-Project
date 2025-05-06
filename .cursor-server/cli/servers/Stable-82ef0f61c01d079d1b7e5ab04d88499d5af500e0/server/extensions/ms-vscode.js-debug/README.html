@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Nightly Extension &#8212; Software Project&lt;br&gt;0368-2161</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-1TDSNPLTY6"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-1TDSNPLTY6');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-1TDSNPLTY6');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '.cursor-server/cli/servers/Stable-82ef0f61c01d079d1b7e5ab04d88499d5af500e0/server/extensions/ms-vscode.js-debug/README';</script>
+    <script src="../../../../../../../_static/custom_analytics.js?v=c96c2ea8"></script>
+    <link rel="index" title="Index" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Software Project<br>0368-2161</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../../../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../Development_Environment.html">Development Environment</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../Python_review.html">Python Review</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../Introduction_to_C.html">Introduction to C</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../arrays_pointers.html">Arrays + Pointers</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../C_tutorial.html">C Tutorial</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../strings.html">Strings</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../dynamicMemory.html">Dynamic memory allocation</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../structures.html">Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../linkedLists.html">Linked Lists</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../preprocessor.html">The Preprocessor</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../Files.html">Files</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../Bitwise_Operators.html">Bitwise Operators</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../C_Python_API.html">C Python API</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../numpy.html">Numpy</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../pandas.html">Pandas</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../scikit_learn.html">Machine Learning</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../large_scale.html">Large Scale</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../c_exam.html">C Exam Questions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/raminass/Software-Project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/raminass/Software-Project/issues/new?title=Issue%20on%20page%20%2F.cursor-server/cli/servers/Stable-82ef0f61c01d079d1b7e5ab04d88499d5af500e0/server/extensions/ms-vscode.js-debug/README.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../../../../_sources/.cursor-server/cli/servers/Stable-82ef0f61c01d079d1b7e5ab04d88499d5af500e0/server/extensions/ms-vscode.js-debug/README.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Nightly Extension</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Nightly Extension</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-new">What’s new?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debug-child-process-and-workers">Debug child process and workers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debug-node-js-processes-in-the-terminal">Debug Node.js processes in the terminal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-support">Profiling Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-npm-script-debugging">Easy npm script debugging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-browser-debugging">Automatic browser debugging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instrumentation-breakpoints">Instrumentation breakpoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#better-autocompletion-in-debug-console">Better autocompletion in debug console</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-value-interception">Return value interception</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#top-level-await">Top-Level <code class="docutils literal notranslate"><span class="pre">await</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pretty-print-minified-sources">Pretty-print minified sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-for-microsoft-edge-and-webview2">Support for Microsoft Edge and WebView2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#better-sourcemap-and-breakpoint-behavior">Better sourcemap and breakpoint behavior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-values-in-call-stack-view">Copy values in call stack view</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-small-things">Other small things</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>
+  <img alt="vscode-js-debug" src="https://github.com/Microsoft/vscode-pwa/raw/HEAD/resources/readme/logo-with-text.png" width="500">
+</h1>
+<p>This is a <a class="reference external" href="https://microsoft.github.io/debug-adapter-protocol/">DAP</a>-based JavaScript debugger. It debugs Node.js, Chrome, Edge, WebView2, VS Code extensions, and more. It has been the default JavaScript debugger in Visual Studio Code since 1.46, and is gradually rolling out in Visual Studio proper.</p>
+<section id="nightly-extension">
+<h1>Nightly Extension<a class="headerlink" href="#nightly-extension" title="Link to this heading">#</a></h1>
+<p>The shipped version of VS Code includes the js-debug version at the time of its release, however you may want to install our nightly build to get the latest fixes and features. The nightly build runs at 5PM PST on each day that there are changes (<a class="reference external" href="https://dev.azure.com/vscode/VS%20Code%20debug%20adapters/_build?definitionId=28">see pipeline</a>). To get the build:</p>
+<ol class="arabic simple">
+<li><p>Open the extensions view (ctrl+shift+x) and search for <code class="docutils literal notranslate"><span class="pre">&#64;builtin</span> <span class="pre">&#64;id:ms-vscode.js-debug</span></code></p></li>
+<li><p>Right click on the <code class="docutils literal notranslate"><span class="pre">JavaScript</span> <span class="pre">Debugger</span></code> extension and <code class="docutils literal notranslate"><span class="pre">Disable</span></code> it.</p></li>
+<li><p>Search for <code class="docutils literal notranslate"><span class="pre">&#64;id:ms-vscode.js-debug-nightly</span></code> in the extensions view.</p></li>
+<li><p>Install that extension.</p></li>
+</ol>
+</section>
+<section id="what-s-new">
+<h1>What’s new?<a class="headerlink" href="#what-s-new" title="Link to this heading">#</a></h1>
+<p>In <code class="docutils literal notranslate"><span class="pre">js-debug</span></code> we aim to provide rich debugging for modern applications, with no or minimal configuration required. Here are a few new features that js-debug brings:</p>
+<section id="debug-child-process-and-workers">
+<h2>Debug child process and workers<a class="headerlink" href="#debug-child-process-and-workers" title="Link to this heading">#</a></h2>
+<p>In Node.js, child processes will automatically be debugged. In browsers, service workers, webworkers, and iframes will be debugged as well.</p>
+<img src="https://github.com/Microsoft/vscode-pwa/raw/HEAD/resources/readme/web-worker.png" width="302">
+<p>While debugging workers, you can also step through <code class="docutils literal notranslate"><span class="pre">postMessage()</span></code> calls.</p>
+</section>
+<section id="debug-node-js-processes-in-the-terminal">
+<h2>Debug Node.js processes in the terminal<a class="headerlink" href="#debug-node-js-processes-in-the-terminal" title="Link to this heading">#</a></h2>
+<p>You can debug any Node.js process you run in the terminal with our revamped Auto Attach. If auto attach isn’t on, you can run the command <code class="docutils literal notranslate"><span class="pre">Debug:</span> <span class="pre">Toggle</span> <span class="pre">Auto</span> <span class="pre">Attach</span></code> to turn it on. Next time you run a command like <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">start</span></code>, we’ll debug it.</p>
+<img src="https://github.com/Microsoft/vscode-pwa/raw/HEAD/resources/readme/auto-attach.png" width="554">
+<p>Once enabled, you can toggle Auto Attach by clicking the <code class="docutils literal notranslate"><span class="pre">Auto</span> <span class="pre">Attach:</span> <span class="pre">On/Off</span></code> button in the status bar on the bottom of your screen.</p>
+<p>You can also create a one-off terminal for debugging via the <code class="docutils literal notranslate"><span class="pre">Debug:</span> <span class="pre">Create</span> <span class="pre">JavaScript</span> <span class="pre">Debug</span> <span class="pre">Terminal</span></code> command.</p>
+<p>In the previous debugger, you had to remember to add the <code class="docutils literal notranslate"><span class="pre">--inspect</span></code> flag when you ran a command, and couldn’t hit breakpoints early in the program since attachment was asynchronous.</p>
+</section>
+<section id="profiling-support">
+<h2>Profiling Support<a class="headerlink" href="#profiling-support" title="Link to this heading">#</a></h2>
+<p>You can capture and view performance profiles natively in VS Code, by clicking on the ⚪ button in the Call Stack view, or through the <code class="docutils literal notranslate"><span class="pre">Debug:</span> <span class="pre">Take</span> <span class="pre">Performance</span> <span class="pre">Profile</span></code> command. The profile information collected through VS Code is sourcemap-aware.</p>
+<img src="https://github.com/Microsoft/vscode-pwa/raw/HEAD/resources/readme/flame-chart.png" width="845">
+</section>
+<section id="easy-npm-script-debugging">
+<h2>Easy npm script debugging<a class="headerlink" href="#easy-npm-script-debugging" title="Link to this heading">#</a></h2>
+<p>You can debug npm scripts by clicking the code lens shown in the package.json, or by running the <code class="docutils literal notranslate"><span class="pre">Debug:</span> <span class="pre">Debug</span> <span class="pre">NPM</span> <span class="pre">Script</span></code> command/</p>
+<img src="https://github.com/Microsoft/vscode-pwa/raw/HEAD/resources/readme/npm-code-lens.png" width="306">
+<p>You can configure where and if the code lens is displayed in the <code class="docutils literal notranslate"><span class="pre">debug.javascript.codelens.npmScripts</span></code> setting.</p>
+</section>
+<section id="automatic-browser-debugging">
+<h2>Automatic browser debugging<a class="headerlink" href="#automatic-browser-debugging" title="Link to this heading">#</a></h2>
+<p>By default, any links you click through the JavaScript debug terminal (<code class="docutils literal notranslate"><span class="pre">Debug:</span> <span class="pre">Create</span> <span class="pre">JavaScript</span> <span class="pre">Debug</span> <span class="pre">Terminal</span></code> command) will open in debug mode. If you’d like, you can enable this for all terminals, or disable it, by setting <code class="docutils literal notranslate"><span class="pre">debug.javascript.debugByLinkOptions</span></code> to <code class="docutils literal notranslate"><span class="pre">always</span></code> or <code class="docutils literal notranslate"><span class="pre">off</span></code>, respectively.</p>
+<img src="https://github.com/Microsoft/vscode-pwa/raw/HEAD/resources/readme/link-debugging.gif">
+</section>
+<section id="instrumentation-breakpoints">
+<h2>Instrumentation breakpoints<a class="headerlink" href="#instrumentation-breakpoints" title="Link to this heading">#</a></h2>
+<p>When debugging web apps, you can configure instrumentation breakpoints from VS Code in the “Event Listener Breakpoints” view.</p>
+<img src="https://github.com/Microsoft/vscode-pwa/raw/HEAD/resources/readme/instrumentation-breakpoints.png" width="367">
+<img src="https://github.com/Microsoft/vscode-pwa/raw/HEAD/resources/readme/instrumentation-breakpoints2.png" width="602">
+</section>
+<section id="better-autocompletion-in-debug-console">
+<h2>Better autocompletion in debug console<a class="headerlink" href="#better-autocompletion-in-debug-console" title="Link to this heading">#</a></h2>
+<p>Autocomplete in the debug console has been significantly improved. You can expect better suggestions for more complex expressions than VS Code was able to handle before.</p>
+<img src="https://github.com/Microsoft/vscode-pwa/raw/HEAD/resources/readme/repl-improvements.png" width="507">
+</section>
+<section id="return-value-interception">
+<h2>Return value interception<a class="headerlink" href="#return-value-interception" title="Link to this heading">#</a></h2>
+<p>On a function’s return statement, you can use, inspect, and modify the <code class="docutils literal notranslate"><span class="pre">$returnValue</span></code>.</p>
+<img src="https://github.com/Microsoft/vscode-pwa/raw/HEAD/resources/readme/returnvalue.png">
+<p>Note that you can use and modify properties on the <code class="docutils literal notranslate"><span class="pre">$returnValue</span></code>, but not assign it to–it is effectively a <code class="docutils literal notranslate"><span class="pre">const</span></code> variable.</p>
+</section>
+<section id="top-level-await">
+<h2>Top-Level <code class="docutils literal notranslate"><span class="pre">await</span></code><a class="headerlink" href="#top-level-await" title="Link to this heading">#</a></h2>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">await</span></code> at the top level in the debug console.</p>
+<img src="https://github.com/Microsoft/vscode-pwa/raw/HEAD/resources/readme/top-level-await.png" width="861">
+<p>However, like the Chrome devtools, if you use <code class="docutils literal notranslate"><span class="pre">await</span></code> while paused on a breakpoint, you’ll only get a pending <code class="docutils literal notranslate"><span class="pre">Promise</span></code> back. This is because the JavaScript event loop is paused while on a breakpoint.</p>
+</section>
+<section id="pretty-print-minified-sources">
+<h2>Pretty-print minified sources<a class="headerlink" href="#pretty-print-minified-sources" title="Link to this heading">#</a></h2>
+<p>The debugger can now pretty print files, especially useful when dealing with minified sources. It will show a prompt when you step into or open a file that looks minified, and you can also trigger pretty printing manually via the <code class="docutils literal notranslate"><span class="pre">Debug:</span> <span class="pre">Pretty</span> <span class="pre">print</span> <span class="pre">for</span> <span class="pre">debugging</span></code> command.</p>
+<p><a class="reference external" href="https://code.visualstudio.com/assets/updates/1_43/js-debug-pretty-printing.gif">Click to view gif</a></p>
+<p>You can turn off the suggestion prompt by selecting Never, or changing the setting debug.javascript.suggestPrettyPrinting to false.</p>
+</section>
+<section id="support-for-microsoft-edge-and-webview2">
+<h2>Support for Microsoft Edge and WebView2<a class="headerlink" href="#support-for-microsoft-edge-and-webview2" title="Link to this heading">#</a></h2>
+<p>We support launching the <a class="reference external" href="https://www.microsoft.com/edge">new Microsoft Edge browser</a>, via the <code class="docutils literal notranslate"><span class="pre">pwa-msedge</span></code> debug type. It supports all the same configuration settings as <code class="docutils literal notranslate"><span class="pre">chrome</span></code> does.</p>
+<img src="https://github.com/Microsoft/vscode-pwa/raw/HEAD/resources/readme/webview2.png" width="584">
+<p>With this comes support for the <a class="reference external" href="https://docs.microsoft.com/microsoft-edge/hosting/webview2">WebView2</a> control in desktop Windows applications. Check out our <a class="reference external" href="https://github.com/microsoft/vscode-js-debug/tree/main/demos/webview">webview demo</a> to learn how to set this up.</p>
+</section>
+<section id="better-sourcemap-and-breakpoint-behavior">
+<h2>Better sourcemap and breakpoint behavior<a class="headerlink" href="#better-sourcemap-and-breakpoint-behavior" title="Link to this heading">#</a></h2>
+<p>Js-debug has a rewritten suite of sourcemap handling and breakpoint resolution logic. This results in more reliable breakpoint behavior in more cases. For example:</p>
+<ul class="simple">
+<li><p>We are guaranteed to set breakpoints before hitting them, where there were previously scenarios where this did not happen.</p></li>
+<li><p>We can handle sources present in multiple compiled files. This is common when dealing with split bundles in web apps.</p></li>
+<li><p>We now support in-place transpilation (such as <code class="docutils literal notranslate"><span class="pre">ts-node</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;babel/register</span></code>).</p></li>
+</ul>
+</section>
+<section id="copy-values-in-call-stack-view">
+<h2>Copy values in call stack view<a class="headerlink" href="#copy-values-in-call-stack-view" title="Link to this heading">#</a></h2>
+<p>VS Code has long had an action to “Copy Value” from the Variables view. However, previously this was truncated for object or long values. Changes in VS Code and js-debug allow us to losslessly copy the full expressions as JSON.</p>
+</section>
+<section id="other-small-things">
+<h2>Other small things<a class="headerlink" href="#other-small-things" title="Link to this heading">#</a></h2>
+<p>js-debug is a cleanroom rewrite of a JavaScript debugger, so there are a large number of small improvements. Here are some more that are unworthy of their own heading:</p>
+<ul class="simple">
+<li><p>Console output is now improved. Promises, ArrayViews/ArrayBuffers, and other complex data structures are better supported.</p></li>
+<li><p>Logpoint breakpoints now support complex expressions and statements. Errors thrown will be printed, rather than silently eaten.</p></li>
+<li><p>You can now specify partial versions in the Node.js <code class="docutils literal notranslate"><span class="pre">runtimeVersion</span></code>. Previously you needed to specify the full version, such as <code class="docutils literal notranslate"><span class="pre">12.3.4</span></code>. Now, you can specify <code class="docutils literal notranslate"><span class="pre">12</span></code> and we’ll use the most recent <code class="docutils literal notranslate"><span class="pre">12.*</span></code> installed on the system.</p></li>
+<li><p>Sourcemaps are now supported when attaching via the <code class="docutils literal notranslate"><span class="pre">Attach</span> <span class="pre">to</span> <span class="pre">Node.js</span> <span class="pre">Process</span></code> command.</p></li>
+<li><p>Several improvements have been made for faster performance and better out-of-the-box behavior in monorepos and multi-part applications.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">console.group()</span></code> set of APIs are now supported.</p></li>
+<li><p>You can pass <code class="docutils literal notranslate"><span class="pre">stable</span></code>, <code class="docutils literal notranslate"><span class="pre">canary</span></code>, or <code class="docutils literal notranslate"><span class="pre">dev</span></code> as <code class="docutils literal notranslate"><span class="pre">runtimeExecutable</span></code>s when launching browsers. We’ll do our best to discover and use the specified version on your machine.</p></li>
+<li><p>You can now set the Node.js <code class="docutils literal notranslate"><span class="pre">program</span></code> to files with other or no extensions without workarounds.</p></li>
+<li><p>Restart frame requests are now supported.</p></li>
+<li><p>Command line APIs like <code class="docutils literal notranslate"><span class="pre">inspect()</span></code> and <code class="docutils literal notranslate"><span class="pre">copy()</span></code> are now available.</p></li>
+</ul>
+</section>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Link to this heading">#</a></h2>
+<p>See <a class="reference external" href="https://github.com/Microsoft/vscode-pwa/blob/HEAD/OPTIONS.md">OPTIONS.md</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "raminass/Software-Project",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./.cursor-server/cli/servers/Stable-82ef0f61c01d079d1b7e5ab04d88499d5af500e0/server/extensions/ms-vscode.js-debug"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Nightly Extension</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-new">What’s new?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debug-child-process-and-workers">Debug child process and workers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debug-node-js-processes-in-the-terminal">Debug Node.js processes in the terminal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-support">Profiling Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-npm-script-debugging">Easy npm script debugging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-browser-debugging">Automatic browser debugging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instrumentation-breakpoints">Instrumentation breakpoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#better-autocompletion-in-debug-console">Better autocompletion in debug console</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-value-interception">Return value interception</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#top-level-await">Top-Level <code class="docutils literal notranslate"><span class="pre">await</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pretty-print-minified-sources">Pretty-print minified sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-for-microsoft-edge-and-webview2">Support for Microsoft Edge and WebView2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#better-sourcemap-and-breakpoint-behavior">Better sourcemap and breakpoint behavior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-values-in-call-stack-view">Copy values in call stack view</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-small-things">Other small things</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Rami Nasser, School of Computer Science and AI, Tel Aviv University, Tel Aviv 6997801, Israel.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  {% include "analytics.html" %}
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
