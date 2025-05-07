@@ -684,13 +684,13 @@ Next are the steps for debugging C program manually using CMD.</p>
 <section id="compile-the-c-program">
 <h3>2.Compile the C program<a class="headerlink" href="#compile-the-c-program" title="Link to this heading">#</a></h3>
 <p>With regular compiler by adding debugging option -g</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>-g<span class="w"> </span>factorial.c
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>-g<span class="w"> </span>factorial.c<span class="w"> </span>-o<span class="w"> </span>factorial
 </pre></div>
 </div>
 </section>
 <section id="launch-gdb">
 <h3>3.Launch gdb<a class="headerlink" href="#launch-gdb" title="Link to this heading">#</a></h3>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gdb<span class="w"> </span>a.out
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gdb<span class="w"> </span>factorial
 <span class="o">(</span>gdb<span class="o">)</span>
 </pre></div>
 </div>
@@ -705,7 +705,7 @@ Breakpoint<span class="w"> </span><span class="m">1</span><span class="w"> </spa
 <section id="run-the-c-program-in-gdb-debugger">
 <h3>5.Run the C program in gdb debugger<a class="headerlink" href="#run-the-c-program-in-gdb-debugger" title="Link to this heading">#</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>run<span class="w"> </span><span class="o">[</span>args<span class="o">]</span>
-Starting<span class="w"> </span>program:<span class="w"> </span>.../a.out
+Starting<span class="w"> </span>program:<span class="w"> </span>.../factorial
 Enter<span class="w"> </span>the<span class="w"> </span>number:<span class="w"> </span><span class="m">3</span>
 </pre></div>
 </div>
@@ -754,8 +754,8 @@ Enter<span class="w"> </span>the<span class="w"> </span>number:<span class="w"> 
 </section>
 <section id="checking-first-attempt-of-fixing">
 <h4>Checking first attempt of fixing:<a class="headerlink" href="#checking-first-attempt-of-fixing" title="Link to this heading">#</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>factorial.c
-./a.out
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>factorial.c<span class="w"> </span>-o<span class="w"> </span>factorial
+./factorial
 Enter<span class="w"> </span>the<span class="w"> </span>number:<span class="w"> </span><span class="m">3</span>
 The<span class="w"> </span>factorial<span class="w"> </span>of<span class="w"> </span><span class="m">3</span><span class="w"> </span>is<span class="w"> </span><span class="m">2</span>
 </pre></div>
@@ -888,8 +888,8 @@ The<span class="w"> </span>factorial<span class="w"> </span>of<span class="w"> <
 </pre></div>
 </div>
 <p>The address of each character in s</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nova<span class="w"> </span><span class="m">45</span>%<span class="w"> </span>gcc<span class="w"> </span>strings.c<span class="w"> </span>
-nova<span class="w"> </span><span class="m">46</span>%<span class="w"> </span>./a.out<span class="w"> </span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nova<span class="w"> </span><span class="m">45</span>%<span class="w"> </span>gcc<span class="w"> </span>strings.c<span class="w"> </span>-o<span class="w"> </span>strings
+nova<span class="w"> </span><span class="m">46</span>%<span class="w"> </span>./strings
 0x400644
 0x400644
 0x400645
@@ -951,8 +951,8 @@ nova<span class="w"> </span><span class="m">46</span>%<span class="w"> </span>./
 </pre></div>
 </div>
 <p>Compile and run the program:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>memory.c<span class="w"> </span>
-./a.out<span class="w"> </span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>memory.c<span class="w"> </span>-o<span class="w"> </span>memory
+./memory<span class="w"> </span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -964,8 +964,8 @@ nova<span class="w"> </span><span class="m">46</span>%<span class="w"> </span>./
 <p>We will use <strong>valgrind</strong>, a command-line tool that we can use to run our program and see if it has any memory-related issues.</p>
 <p>How ?
 run valgrind followed by the executable of the program as follow:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>-g<span class="w"> </span>memory.c
-valgrind<span class="w"> </span>./a.out<span class="w"> </span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>-g<span class="w"> </span>memory.c<span class="w"> </span>-o<span class="w"> </span>memory
+valgrind<span class="w"> </span>./memory
 </pre></div>
 </div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">==</span><span class="nv">2141</span><span class="o">==</span><span class="w"> </span>Memcheck,<span class="w"> </span>a<span class="w"> </span>memory<span class="w"> </span>error<span class="w"> </span><span class="nv">detector</span>
@@ -1014,12 +1014,12 @@ valgrind<span class="w"> </span>./a.out<span class="w"> </span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>%<span class="w"> </span>gcc<span class="w"> </span>-g<span class="w"> </span>memory.c
-%<span class="w"> </span>valgrind<span class="w"> </span>./a.out
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>%<span class="w"> </span>gcc<span class="w"> </span>-g<span class="w"> </span>memory.c<span class="w"> </span>-o<span class="w"> </span>memory
+%<span class="w"> </span>valgrind<span class="w"> </span>./memory
 <span class="o">==</span><span class="nv">2743</span><span class="o">==</span><span class="w"> </span>Memcheck,<span class="w"> </span>a<span class="w"> </span>memory<span class="w"> </span>error<span class="w"> </span><span class="nv">detector</span>
 <span class="o">==</span><span class="nv">2743</span><span class="o">==</span><span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2002</span>-2013,<span class="w"> </span>and<span class="w"> </span>GNU<span class="w"> </span>GPL<span class="err">&#39;</span>d,<span class="w"> </span>by<span class="w"> </span>Julian<span class="w"> </span>Seward<span class="w"> </span>et<span class="w"> </span>al.
 <span class="o">==</span><span class="nv">2743</span><span class="o">==</span><span class="w"> </span>Using<span class="w"> </span>Valgrind-3.10.0.SVN<span class="w"> </span>and<span class="w"> </span>LibVEX<span class="p">;</span><span class="w"> </span>rerun<span class="w"> </span>with<span class="w"> </span>-h<span class="w"> </span><span class="k">for</span><span class="w"> </span>copyright<span class="w"> </span><span class="nv">info</span>
-<span class="o">==</span><span class="nv">2743</span><span class="o">==</span><span class="w"> </span>Command:<span class="w"> </span>./a.out
+<span class="o">==</span><span class="nv">2743</span><span class="o">==</span><span class="w"> </span>Command:<span class="w"> </span>./memory
 <span class="o">==</span><span class="nv">2743</span><span class="o">==</span><span class="w"> </span>
 <span class="o">==</span><span class="nv">2743</span><span class="o">==</span><span class="w"> </span>
 <span class="o">==</span><span class="nv">2743</span><span class="o">==</span><span class="w"> </span>HEAP<span class="w"> </span>SUMMARY:
@@ -1037,11 +1037,11 @@ valgrind<span class="w"> </span>./a.out<span class="w"> </span>
 </pre></div>
 </div>
 <p>In order to view the leaks in details add the –leak-check=full option to valgrind, example:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>%<span class="w"> </span>valgrind<span class="w"> </span>--leak-check<span class="o">=</span>full<span class="w"> </span>./a.out
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>%<span class="w"> </span>valgrind<span class="w"> </span>--leak-check<span class="o">=</span>full<span class="w"> </span>./memory
 <span class="o">==</span><span class="nv">3052</span><span class="o">==</span><span class="w"> </span>Memcheck,<span class="w"> </span>a<span class="w"> </span>memory<span class="w"> </span>error<span class="w"> </span><span class="nv">detector</span>
 <span class="o">==</span><span class="nv">3052</span><span class="o">==</span><span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2002</span>-2013,<span class="w"> </span>and<span class="w"> </span>GNU<span class="w"> </span>GPL<span class="s1">&#39;d, by Julian Seward et al.</span>
 <span class="s1">==3052== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info</span>
-<span class="s1">==3052== Command: ./a.out</span>
+<span class="s1">==3052== Command: ./memory</span>
 <span class="s1">==3052== </span>
 <span class="s1">==3052== Invalid write of size 4</span>
 <span class="s1">==3052==    at 0x400567: main (memory.c:9)</span>
@@ -1222,7 +1222,8 @@ Answer: We will show an option with 2d linked list.</p>
 <span class="w">        </span><span class="n">curr_cord</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="c1">// free memory</span>
 <span class="p">}</span>
 
 </pre></div>
