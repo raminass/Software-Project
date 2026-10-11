@@ -1,15 +1,22 @@
-# Base image with Ubuntu LTS
-FROM ubuntu:22.04
+FROM python:3.12-slim
 
-# Prevent timezone prompts during installation
-ENV DEBIAN_FRONTEND=noninteractive
-ENV TZ=UTC
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    ca-certificates \
+    curl \
+    git \
+    postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install essential packages and development tools
 RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     python3-dev \
+    postgresql-client \
     gcc \
     g++ \
     gdb \
@@ -25,27 +32,36 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python packages
-RUN pip3 install --no-cache-dir \
-    numpy \
-    pytest \
-    ipython
+# Official Docker CLI + Compose v2 plugin (multi-arch: amd64 / arm64).
+RUN set -eux; \
+    ARCH="$(uname -m)"; \
+    case "$ARCH" in \
+      x86_64) DOCKER_ARCH=x86_64; COMPOSE_ARCH=x86_64 ;; \
+      aarch64|arm64) DOCKER_ARCH=aarch64; COMPOSE_ARCH=aarch64 ;; \
+      *) echo "Unsupported architecture: $ARCH" >&2; exit 1 ;; \
+    esac; \
+    curl -fsSL \
+      "https://download.docker.com/linux/static/stable/${DOCKER_ARCH}/docker-27.3.1.tgz" \
+      | tar -xz --strip-components=1 -C /usr/local/bin docker/docker; \
+    mkdir -p /usr/local/lib/docker/cli-plugins /usr/libexec/docker/cli-plugins; \
+    curl -fsSL \
+      "https://github.com/docker/compose/releases/download/v2.30.3/docker-compose-linux-${COMPOSE_ARCH}" \
+      -o /usr/local/lib/docker/cli-plugins/docker-compose; \
+    chmod +x /usr/local/lib/docker/cli-plugins/docker-compose; \
+    ln -sf /usr/local/lib/docker/cli-plugins/docker-compose \
+      /usr/libexec/docker/cli-plugins/docker-compose
 
-# Setup SSH server
-RUN mkdir /var/run/sshd
-RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
-RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+WORKDIR /workspace
 
-# Create a user for SSH access
-RUN useradd -rm -d /home/developer -s /bin/bash -g root -G sudo -u 1000 developer
-RUN echo 'developer:developer' | chpasswd
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Create workspace directory
-RUN mkdir -p /workspace
-RUN chown developer:root /workspace
+RUN apt-get update && apt-get install -y openssh-server && \
+    useradd -m -s /bin/bash student && \
+    echo 'student:course' | chpasswd && \
+    mkdir -p /run/sshd && \
+    rm -rf /var/lib/apt/lists/*
 
-# Expose SSH port
-EXPOSE 22
+RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
-# Start SSH server
 CMD ["/usr/sbin/sshd", "-D"]
